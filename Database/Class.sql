@@ -1,6 +1,6 @@
 CREATE TABLE Class (
 Class_ID INT NOT NULL PRIMARY KEY,
-Class_name VARCHAR(15),
+Class_Name VARCHAR(15),
 Year_ID INT,
 Teacher_ID INT,
 FOREIGN KEY (Year_ID) REFERENCES Years(Year_ID), 
