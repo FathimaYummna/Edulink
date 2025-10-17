@@ -17,23 +17,24 @@
     </div>
     <div>
         <h3>To update teachers' information</h3>
-        <form action="../Backend/add_teachers.php" method="post">
+        <form action="../Backend/update_teachers.php" method="post">
 
 
             <lable>Teacher ID</lable>
-            <input type="number" name="teacherid" ,placeholder="Teacher ID" required>
-            <label>Name :</label>
-            <input type=" text " name="name " placeholder="Name "><br>
-            <label>User name :</label>
-            <input type="text " name="username " placeholder="username "><br>
-            <label>Password</label>
-            <input type="password " name="password " placeholder="Password "><br>
-            <label>Email :</label>
-            <input type="text " name="email " placeholder="Email "><br>
-            <label>Phone No :</label> <input type="text " placeholder="Phone No "><br>
-            <label>Qualifications :</label>
-            <input type="text " name="qualifications " placeholder="Qualifications "><br>
-            <button type=" submit ">Submit</button>
+            <input type="number" name="teacherid" placeholder="Teacher ID" required>
+
+            <select name="column_name">
+                <option value="User_Name">User Name</option>
+                <option value="Password">Password</option>
+                <option value="Email">Email</option>
+                <option value="Phone_No">Phone no</option>
+                <option value="Qualifications">Qualifications</option>
+            </select><br><br>
+
+            <lable>New Value:</lable><br>
+            <input type="text" name="new_value" required><br><br>
+
+            <button type="submit">Submit</button>
         </form>
     </div>
     </div>

@@ -21,7 +21,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
  if ($conn->query($sql) === TRUE) {
     
-       // echo "Teacher added successfully!";
+       echo "Teacher added successfully!";
     }
      else{ 
         echo "Error: " . $conn->error;

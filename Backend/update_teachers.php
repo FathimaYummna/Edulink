@@ -4,25 +4,29 @@ include "db.php";
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
 
-    $id=$_POST['id'];
-    $name =$_POST['name'];
-    $username =$_POST['username'];
-    $password =$_POST['password'];
-    $email =$_POST['email'];
-    $phone =$_POST['phone'];
-    $qualifications =$_POST['qualifications'];
-    
-    
-    $sql = "UPDATE Teacher 
-    SET Teacher_Name='$name', User_Name='$username', Passwords='$password',Email='$email', Phone_NO='$phone', Qualifications='$qualifications', Subject_ID='$subid'
-    WHERE id='$id'";
+    $tid=$_POST['teacherid'];
+    $column_name=$_POST['column_name'];
+    $new_values=$_POST['new_value'];
 
-    if ($conn->query($sql) === TRUE) {
-        echo "Teacher update successfully!";
-    } else {
-        echo "Error: " . $conn->error;
+    $sql="SELECT teach_id FROM teacher WHERE teach_id='$tid'";
+    $result=$conn->query($sql);
+
+    if($result->num_rows>0){
+
+        $sql = "UPDATE Teacher 
+        SET $column_name='$new_values'
+        WHERE Teacher_ID='$tid' ";
+
+        if ($conn->query($sql) === TRUE) {
+            echo "Teacher update successfully!";
+        } else {
+            echo "Error: " . $conn->error;
+        }
     }
+    else{
 
+        echo "Teache ID ". $tid."not found";
+    }
     $conn->close();
 
 }
