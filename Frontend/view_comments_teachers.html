@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <title>EduLink- Student Monitoring System</title>
+</head>
+
+<body>
+    <div>
+        <h3>To add a new comment</h3>
+        <a href="add_comments.html">
+            <button type="submit">Add</button></a>
+    </div>
+    <div>
+        <h3>To remove a comments</h3>
+        <a href="delete_comments.html">
+            <button type="submit">Remove</button>
+        </a>
+    </div>
+    <div>
+        <h3>To update a comment</h3>
+        <form action="update_teachers.html" method="post ">
+            <label>Comment ID :</label>
+            <input type="number" name="commentid" placeholder="Comment ID"><br><br>
+            <button type="submit">Submit</button>
+    </div>
+    <div>
+        <h3>To view comments</h3>
+        <lable>Date From :</lable>
+        <input type="date" name="d1" placeholder="Date from"><br><br>
+        <lable>DAte To :</lable>
+        <input type="date" name="d2" placeholder="Date to"><br><br>
+        <h4>To view specific comment given to a student</h4>
+        <label>Enter student ID</label>
+        <input type="number" name="stuid" placeholder="Student ID">
+        <a href="../Backend/view_comments_teachers.php">
+            <button type="submit">View</button></a>
+    </div>
+</body>
+
+</html>

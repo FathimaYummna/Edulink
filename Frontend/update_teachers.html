@@ -7,30 +7,32 @@
 <body>
     <div>
         <h3>To add new teachers</h3>
-        <a href="C:\Users\iFix Technology\Desktop\EdueLink\Edulink\Frontend\add_teachers.html">
+        <a href="add_teachers.html">
             <button type="button">Add</button></a>
     </div>
     <div>
         <h3>To remove teachers</h3>
-        <a href="C:\Users\iFix Technology\Desktop\EdueLink\Edulink\Frontend\remove_teachers.html">
+        <a href="remove_teachers.html">
             <button>Remove</button></a>
     </div>
     <div>
         <h3>To update teachers' information</h3>
-        <form action="update_teachers.php" method="post">
+        <form action="../Backend/add_teachers.php" method="post">
+
+
+            <lable>Teacher ID</lable>
+            <input type="number" name="teacherid" ,placeholder="Teacher ID" required>
             <label>Name :</label>
-            <input type=" text " name="name" placeholder="Name" required><br>
+            <input type=" text " name="name " placeholder="Name "><br>
             <label>User name :</label>
-            <input type="text " name="username" placeholder="username" required><br>
+            <input type="text " name="username " placeholder="username "><br>
             <label>Password</label>
-            <input type="password" name="password" placeholder="Password" required><br>
+            <input type="password " name="password " placeholder="Password "><br>
             <label>Email :</label>
-            <input type="text" name="email" placeholder="Email"><br>
-            <label>Phone No :</label> <input type="text" placeholder="Phone No"><br>
+            <input type="text " name="email " placeholder="Email "><br>
+            <label>Phone No :</label> <input type="text " placeholder="Phone No "><br>
             <label>Qualifications :</label>
-            <input type="text" name="qualifications" placeholder="Qualifications"><br>
-            <label>Subject ID :</label>
-            <input type="number" name="subid" placeholder="Subject ID"><br><br>
+            <input type="text " name="qualifications " placeholder="Qualifications "><br>
             <button type=" submit ">Submit</button>
         </form>
     </div>
