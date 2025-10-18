@@ -1,7 +1,3 @@
-CREATE TABLE Class (
-Class_ID INT NOT NULL PRIMARY KEY,
-Class_Name VARCHAR(15),
-Year_ID INT,
-Teacher_ID INT,
-FOREIGN KEY (Year_ID) REFERENCES Years(Year_ID), 
-Room_NO INT);
+CREATE TABLE class (
+class_name VARCHAR(10) NOT NULL PRIMARY KEY,
+room_no int);
