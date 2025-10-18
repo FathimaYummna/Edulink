@@ -3,13 +3,13 @@ include 'db.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $id =$_POST['teacherid'];
+    $id =$_POST['teachid'];
 
-    $sql="SELECT Teacher_ID FROM Teacher WHERE Teacher_ID='$tid'";
+    $sql="SELECT teach_id FROM teacher WHERE teach_id='$tid'";
     $result=$conn->query($sql);
     
     if ($result->num_rows > 0) {
-        $sql ="DELETE FROM Teacher WHERE Teacher_ID='$id'";
+        $sql ="DELETE FROM teacher WHERE teach_id='$id'";
         if ($conn->query($sql) === TRUE) {
             echo "Teacher removed successfully!";
         } 

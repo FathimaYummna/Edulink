@@ -1,7 +1,8 @@
 <html>
 
 <head>
-    <title>EduLink- Student Monitoring System</title>
+    <title>EduLink-View Comments</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -23,17 +24,19 @@
             <input type="number" name="commentid" placeholder="Comment ID"><br><br>
             <button type="submit">Submit</button>
     </div>
-    <div>
+    <div class="divview">
         <h3>To view comments</h3>
-        <lable>Date From :</lable>
-        <input type="date" name="d1" placeholder="Date from"><br><br>
-        <lable>DAte To :</lable>
-        <input type="date" name="d2" placeholder="Date to"><br><br>
-        <lable>Teacher ID:</lable>
-        <input type="text" name="id" placeholder="Your ID"><br><br>
-        <h4>To view specific comment given to a student</h4>
-        <label>Enter student ID</label>
-        <input type="number" name="stuid" placeholder="Student ID">
+
+        <label>Date From :</lable>
+            <input type="date" name="d1" placeholder="Date from"><br><br>
+            <label>Date To :</lable>
+            <input type="date" name="d2" placeholder="Date to"><br><br>
+            <label>Teacher ID:</lable>
+            <input type="text" name="tachid" placeholder="Your ID"><br><br>
+            <h4>To view specific comment given to a student</h4>
+            <label>Enter student ID :</label>
+        <input type="number" name="stuid" placeholder="Student ID"><br><br>
+
         <a href="../Backend/view_comments_teachers.php">
             <button type="submit">View</button></a>
     </div>

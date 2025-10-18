@@ -5,16 +5,16 @@ include 'db.php';
 if($_SERVER["REQUEST_METHOD"]=="POST"){
 
     $stuid=$_POST['stuid'];
-    $tid=$_POST['teacherid'];
+    $tid=$_POST['teachid'];
     $comm=$_POST['comment'];
     
-    $sql="SELECT Class_id FROM student_class WHERE stu_id='$stuid'";
+    $sql="SELECT class_name FROM student_class WHERE stu_id='$stuid'";
     $result1=$conn->query($sql);
-    $scid=$result1->fetch_assoc()['class_id'];
+    $scid=$result1->fetch_assoc()['class_name'];
 
-    $sql="SELECT Class_id FROM teaches_class WHERE teach_id='$tid'";
+    $sql="SELECT Class_name FROM teacher_class WHERE teach_id='$tid'";
     $result2=$conn->query($sql);
-    $tcid=$result2->fetch_assoc()['class_id'];
+    $tcid=$result2->fetch_assoc()['class_name'];
 
     if($scid==$tcid){
         $sql="INSERT INTO comment(teach_id,stu_id,comment)

@@ -4,10 +4,10 @@ include 'db.php';
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
 
-    $tid=$_POST['tid'];
+    $tid=$_POST['teachid'];
     $commid=$_POST['commentid'];
 
-    $sql="SELECT teach_id FROM teacher_comment WHERE comm_id='$commid'";
+    $sql="SELECT teach_id FROM comment WHERE comm_id='$commid'";
     $result=$conn->query($sql);
 
     if($result->num_rows>0){
@@ -28,7 +28,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         }
     }
     else{
-        echo "The comment not found";0
+        echo "The comment not found";
     }
     $conn->close();
 }

@@ -1,11 +1,12 @@
 <?php
+
 include 'db.php';
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
 
     $sdate=$_POST['d1'];
     $edate=$_POST['d2'];
-    $tid=$_POST['id'];
+    $tid=$_POST['teachid'];
     $stuid=$_POST['stuid'];
 
     $sql="SELECT commid FROM comment WHERE teach_id='$tid'";
@@ -27,19 +28,19 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
         $result2=$conn->query($sql);
 
-        echo "<table> ";
+        echo"<table> ";
         echo"<tr>";
-        echo "<th>Student ID</th>";
+        echo"<th>Student ID</th>";
         echo"<th>Comment</th>";
         echo"<th>Date</th>";
-        echo "</tr>";
+        echo"</tr>";
 
         while($values=$result2->fetch_assoc()){
-            echo "<tr>";
-            echo "<td>" . htmlspecialchars($values['stu_id']) . "</td>";
-            echo "<td>" . htmlspecialchars($values['comment']) . "</td>";
-            echo "<td>" . htmlspecialchars($values['date']) . "</td>";
-            echo "</tr>"; 
+            echo"<tr>";
+            echo"<td>" . htmlspecialchars($values['stu_id']) . "</td>";
+            echo"<td>" . htmlspecialchars($values['comment']) . "</td>";
+            echo"<td>" . htmlspecialchars($values['date']) . "</td>";
+            echo"</tr>"; 
         }
         echo "</table>";
 
@@ -49,4 +50,5 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     }
     $conn->close();
 }
+
 ?>

@@ -2,28 +2,31 @@
 
 <head>
     <title>
-        EduLink- Student Monitoring System
+        EduLink-Adding New Comments
     </title>
+    <link rel="stylesheet" href="styles.css">
+
 </head>
 
 <body>
 
 </body>
 <div>
-    <h3>To add new teachers</h3>
+    <h3>To add a new comment</h3>
     <form action="../Backend/add_comments.php" method="post">
         <label>Student ID :</label>
         <input type="number" name="stuid" placeholder="Student ID" required><br><br>
         <label>Teacher ID :</label>
-        <input type="number" name="teacherid" placeholder="Your ID"><br><br>
+        <input type="number" name="teachid" placeholder="Your ID"><br><br>
         <label>Place relevent improvements or/and appreciations relevent to the student :</label><br>
         <input type="text" name="comment" placeholder="Write here"><br><br><br>
         <button type="submit">Submit</button>
     </form>
 </div>
-<h3>To remove a comments</h3>
-<a href="delete_comments.html">
-    <button type="submit">Remove</button></a>
+<div>
+    <h3>To remove a comments</h3>
+    <a href="delete_comments.html">
+        <button type="submit">Remove</button></a>
 </div>
 <div>
     <h3>To update a comment</h3>

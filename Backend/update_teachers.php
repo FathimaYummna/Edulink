@@ -4,7 +4,7 @@ include "db.php";
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
 
-    $tid=$_POST['teacherid'];
+    $tid=$_POST['teachid'];
     $column_name=$_POST['column_name'];
     $new_values=$_POST['new_value'];
 
@@ -13,9 +13,9 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
     if($result->num_rows>0){
 
-        $sql = "UPDATE Teacher 
+        $sql = "UPDATE teacher 
         SET $column_name='$new_values'
-        WHERE Teacher_ID='$tid' ";
+        WHERE teach_id='$tid' ";
 
         if ($conn->query($sql) === TRUE) {
             echo "Teacher update successfully!";

@@ -1,7 +1,8 @@
 <html>
 
 <head>
-    <title>EduLink- Student Monitoring System</title>
+    <title>EduLink-Editing Comments</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -17,10 +18,14 @@
         </a>
     </div>
     <div>
-        <h3>To update a comment</h3>
-        <form action="../Backend/edit_comment.php " method="post ">
+        <h3>To edit a comment</h3>
+        <form action="../Backend/edit_comments.php " method="post ">
             <label>Comment ID :</label>
-            <input type="number" name="commentid" placeholder="Comment ID"><br><br>
+            <input type="number" name="commid" placeholder="Comment ID" required><br><br>
+            <label>Teacher ID :</label>
+            <input type="number" name="teachid" placeholder="Your ID" required><br><br>
+            <label>New Comment :</label>
+            <input type="number" name="newcomm" placeholder="Write changers here "><br><br>
             <button type="submit">Submit</button>
     </div>
     <div>
