@@ -17,11 +17,12 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
 
    $sql="INSERT INTO teacher(teach_id,full_ame, user_name, passwords, gender, email,mobile, qualifications, sub_id, hire_date)
-   VALUES('$teachid','$name','$username', '$password', '$gender', '$email', '$mobile', '$qualifications', '$subid', '$hiredate')";
+   VALUES('$tid','$name','$username', '$password', '$gender', '$email', '$mobile', '$qualifications', '$subid', '$hiredate')";
 
- if ($conn->query($sql) === TRUE) {
-    
-       echo "Teacher added successfully!";
+    if ($conn->query($sql) === TRUE) {
+        
+        header('Location: ../Frontend/add_teachers.html');
+      
     }
      else{ 
         echo "Error: " . $conn->error;

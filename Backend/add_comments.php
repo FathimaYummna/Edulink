@@ -3,33 +3,40 @@
 include 'db.php';
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
+         
+    $sql="SELECT class_name FROM subject_teacher WHERE teach_id='$tid'";
+    $result=$conn->query($sql);
+
+    while($value=$result->fetch_assoc()){
+        echo " <option value ='" . $value['class_name'] . "' >" .$value['class_name'] . "</option>";
+    }
+   
+    $class=$_POST['classname'];
+
+    $sql="SELECT f_name FROM student WHERE class_name='$class'";
+    $result=$conn->quay($sql);
+
+    while($value=$result->fetch_assoc()){
+        echo "<option value='" . $value['f_name'] . "'>" . $value['f_name'] . "</option>";
+    }
+
+    $name=$_POST['studentname'];
+
+    $sql="SELECT stu_id FROM stuent WHERE f_name='$name'";
+    $result=$conn->quary($sql);
+    $value= $result->fetch_assoc()['stu_id'];
 
     $stuid=$_POST['stuid'];
-    $tid=$_POST['teachid'];
     $comm=$_POST['comment'];
-    
-    $sql="SELECT class_name FROM student_class WHERE stu_id='$stuid'";
-    $result1=$conn->query($sql);
-    $scid=$result1->fetch_assoc()['class_name'];
 
-    $sql="SELECT Class_name FROM teacher_class WHERE teach_id='$tid'";
-    $result2=$conn->query($sql);
-    $tcid=$result2->fetch_assoc()['class_name'];
-
-    if($scid==$tcid){
-        $sql="INSERT INTO comment(teach_id,stu_id,comment)
-        VALUES('$stu_id','$teach_id',$comm')";
-
-        if($conn->query($sql)==TRUE){
-            echo "Add the comment successfully !";
-        }
-        else{
-            echo " Error ". $conn->error;
-        }
+    if($value==$stuid){
+        $sql="INSERT INTO comment(teach_id,stu_id,comment,)
+         VALUES($tid,$stuid,$comm)";
     }
     else{
-        echo "You are not the respective class teacher ";
+        echo "student mismatch";
     }
+    
     $conn->close();
 }
 

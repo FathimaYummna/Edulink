@@ -5,12 +5,11 @@ include 'db.php';
 if($_SERVER["REQUEST_METHOD"]=="POST"){
 
     $commid=$_POST['commid'];
-    $tid=$_POST['teachid'];
     $new_value=$_POST['newcomm'];
 
     $sql="SELECT teach_id FROM comment WHERE comm_id ='$commid'";
-
     $result=$conn->query($sql);
+
     if($result->num_rows>0){
         $check=$result->fetch_assoc()['teach_id'];
 
@@ -28,7 +27,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
             }
         }
         else{
-            echo"you caant update";
+            echo"you cant update";
         }
     }
     else{

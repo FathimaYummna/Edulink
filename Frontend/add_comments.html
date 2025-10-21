@@ -14,12 +14,20 @@
 <div>
     <h3>To add a new comment</h3>
     <form action="../Backend/add_comments.php" method="post">
-        <label>Student ID :</label>
+
+        <select name="classname">
+            <option value="" >Select the Class</option>
+        </select><br><br>
+
+        <select name="stuentname">
+        <option value="">Select student name</option>
+        </select><br><br>
+
+        <label> Enter Student ID :</label>
         <input type="number" name="stuid" placeholder="Student ID" required><br><br>
-        <label>Teacher ID :</label>
-        <input type="number" name="teachid" placeholder="Your ID"><br><br>
         <label>Place relevent improvements or/and appreciations relevent to the student :</label><br>
-        <input type="text" name="comment" placeholder="Write here"><br><br><br>
+        <input type="text" name="comment" placeholder="Write here"><br><br>
+
         <button type="submit">Submit</button>
     </form>
 </div>

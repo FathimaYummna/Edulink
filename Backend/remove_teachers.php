@@ -3,7 +3,7 @@ include 'db.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $id =$_POST['teachid'];
+    $tid =$_POST['teachid'];
 
     $sql="SELECT teach_id FROM teacher WHERE teach_id='$tid'";
     $result=$conn->query($sql);

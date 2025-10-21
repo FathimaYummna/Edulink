@@ -3,6 +3,7 @@
 <head>
     <title>EduLink-View Comments</title>
     <link rel="stylesheet" href="styles.css">
+
 </head>
 
 <body>
@@ -18,27 +19,31 @@
         </a>
     </div>
     <div>
-        <h3>To update a comment</h3>
-        <form action="update_teachers.html" method="post ">
-            <label>Comment ID :</label>
-            <input type="number" name="commentid" placeholder="Comment ID"><br><br>
-            <button type="submit">Submit</button>
+        <h3>To edit a comment</h3>
+        <a href="edit_comments.html">
+            <button type="submit ">Update</button></a>
     </div>
+
     <div class="divview">
         <h3>To view comments</h3>
+        <form action="../Backend/view_comments_teachers.php " method="post ">
+            <label>Date From :</label>
+            <input type="date " name="d1 " placeholder="Date from "><br><br>
+            <label>Date To :</label>
+            <input type="date " name="d2 " placeholder="Date to "><br><br>
 
-        <label>Date From :</lable>
-            <input type="date" name="d1" placeholder="Date from"><br><br>
-            <label>Date To :</lable>
-            <input type="date" name="d2" placeholder="Date to"><br><br>
-            <label>Teacher ID:</lable>
-            <input type="text" name="tachid" placeholder="Your ID"><br><br>
+            <h4>To view specific comments given to a class</h4>
+
+            <select name="classname">
+            <option value=" ">Select the class</option>
+            </select>
+
             <h4>To view specific comment given to a student</h4>
             <label>Enter student ID :</label>
-        <input type="number" name="stuid" placeholder="Student ID"><br><br>
+            <input type="number " name="stuid " placeholder="Student ID "><br><br>
 
-        <a href="../Backend/view_comments_teachers.php">
-            <button type="submit">View</button></a>
+            <button type="submit ">View</button>
+        </form>
     </div>
 </body>
 

@@ -4,7 +4,7 @@ include 'db.php';
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
 
-    $tid=$_POST['teachid'];
+    
     $commid=$_POST['commentid'];
 
     $sql="SELECT teach_id FROM comment WHERE comm_id='$commid'";
