@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Attendance</title>
 
-    <link rel="stylesheet" href="parent_attendance.css">
+    <link rel="stylesheet" href="parent_attend.css">
+    <script src="https://kit.fontawesome.com/f797e4815a.js" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
 
-    <div class="nav">
+   
         <header>
             <div>Home</div>
             <div>Academics</div>
@@ -21,9 +22,21 @@
             <div>Extra-Curriculars</div>
             <div>Teacher Comments</div>
         </header>
+  
+
+    <div class="attend">
+        <div>
+            <p id="stat">Your child is <span id="att_status"></span> today!</p>
+        </div>
+
+        <div><button onclick="location.href='../Backend/parent_attendance.php'">Enter</button></div>
     </div>
 
-    
+
+    <script src="../Backend/parent_att.js"></script>
+    <script>att_status()</script>
+
+
 
 </body>
 

@@ -1,30 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <script src="../Backend/teacher_attendance.js"></script>
-</head>
-<body>
-    <form action="../Backend/teacher_attendance.php" method="post">
-        <label for="class">Select Class : </label>
-        <select name="class">
-            <option value=1>Grade 01</option>
-            <option value=2>Grade 02</option>
-            <option value=3>Grade 03</option>
-            <option value=4>Grade 04</option>
-            <option value=5>Grade 05</option>
-            <option value=6>Grade 06</option>
-            <option value=7>Grade 07</option>
-            <option value=8>Grade 08</option>
-            <option value=9>Grade 09</option>
-            <option value=10>Grade 10</option>
-            <option value=11>Grade 11</option>
-        </select>
-        <button type="submit">Enter</button>
-    </form>
+    <link rel="stylesheet" href="teacher_att.css">
 
+</head>
+
+<body>
+    <div>
+        <form method="post" class="att_forms">
+            <div id="select_class"><label for="class">Select Class : </label></div>
+            <div class="option"><select name="class" id="class">
+                    <option value="" selected disabled>---</option>
+                    <option value=6A>Class 6A</option>
+                    <option value=6B>Class 6B</option>
+                    <option value=7A>Class 7A</option>
+                    <option value=7B>Class 7B</option>
+                    <option value=8A>Class 8A</option>
+                    <option value=8B>Class 8B</option>
+                    <option value=9A>Class 9A</option>
+                    <option value=9B>Class 9B</option>
+                    <option value=10A>Class 10A</option>
+                    <option value=10B>Class 10B</option>
+                </select>
+            </div>
+
+            <div><button type="button" onclick="getStudents()" class="enter">Enter</button></div>
+
+        </form>
+    </div>
+    <script src="../Backend/teacher_att.js"></script>
+
+    <div>
+        <form  id="attForm" action='../Backend/record_attendance.php' method='post'
+            style="display:none;">
+            <div  class="att_forms">
+            <div>
+                <table id='stuAttTable' border="1" class="stTable" >
+                    <tr>
+                        <th>Student ID</th>
+                        <th>Student Full Name</th>
+                        <th>Status</th>
+                    </tr>
+                </table>
+            </div>
+            <div><button class="enter" type='submit'>Submit</button></div>
+            </div>
+        </form>
+    </div>
+    
 </body>
+
 </html>

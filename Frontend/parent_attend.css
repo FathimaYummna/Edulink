@@ -1,0 +1,46 @@
+body 
+{
+    background-image: url(../resources/attendance.jpg);
+    display:flex;
+    margin:0;
+    border:0;
+    min-height: 100vh;
+    min-width: 100vw;
+    align-items: center; 
+    justify-content: space-between;
+    background-repeat: no-repeat; 
+    background-position: center;
+    flex-direction: column;
+    background-size: 100vw 100vh;
+
+}
+
+
+
+
+
+header
+{
+    background-color: rgba(8, 8, 222, 0.434);
+    height:75px;
+    width: 100%;
+    margin:0;
+    border:0;
+    padding:0;
+    display : flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    
+}
+
+.attend
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height:80vh;
+    width:90vw;
+    border:2px solid black;
+    flex-direction: column;
+}
