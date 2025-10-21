@@ -1,30 +1,51 @@
 <?php
 
 include 'db_connect.php';
+$stat='';
 
 if(isset($_POST['status']))
     {
         $present=$_POST['status'];
-        foreach($present as $stuId)
+
+        $checkdate='select status from date where date=curdate()';
+
+        $result=$conn->query($checkdate);
+
+        if($result)
         {
-            echo $stuId;
-            $sql2="select if (curdate() in (select day_id from attendance where Stu_ID=$stuId),'Yes','No') as status";
-            
+           $stat=$result->fetch_assoc(); 
+        }
+        
 
-            $result=$conn->query($sql2);
+        if($stat['status']=='Yes')
+        {
 
-            $row=$result->fetch_assoc();
-
-            if ($row['status']=='Yes')
+            foreach($present as $stuId)
             {
-                echo 'Attendance marked already';
-            }
-            else 
-            {
-                $sql="insert into attendance values ($stuId,curdate(),'Present')";
-                $run=$conn->query($sql);
+                echo $stuId;
+                $sql2="select if (curdate() in (select date from attendance where Stu_ID=$stuId),'Yes','No') as status";
+                
+
+                $result=$conn->query($sql2);
+
+                $row=$result->fetch_assoc();
+
+                if ($row['status']=='Yes')
+                {
+                    echo 'Attendance marked already';
+                }
+                else 
+                {
+                    $sql="insert into attendance values ($stuId,curdate(),'Present')";
+                    $run=$conn->query($sql);
+                }
             }
         }
+        else
+        {
+            echo "<h2 style='color:red; background-color:aqua;'>Today is not a school day!</h2>";
+
+        } 
     }
 
 
