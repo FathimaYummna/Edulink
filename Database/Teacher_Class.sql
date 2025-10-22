@@ -1,10 +1,10 @@
-CREATE TABLE Teacher_Class (
-    Teacher_ID INT,
-    Class_ID INT,
-    Year_ID INT, 
-    PRIMARY KEY (Teacher_ID, Class_ID,Year_ID),
-    FOREIGN KEY (Teacher_ID) REFERENCES Teacher(Teacher_ID),
-    FOREIGN KEY (Class_ID) REFERENCES Class(Class_ID),
-    FOREIGN KEY(Year_ID) REFERENCES Year (Year_ID)
+CREATE TABLE teacher_class (
+    teach_id INT,
+    class_name INT,
+    year_name INT, 
+    PRIMARY KEY (teach_id, class_name,year_name),
+    FOREIGN KEY (teach_id) REFERENCES Teacher(teach_id),
+    FOREIGN KEY (class_name) REFERENCES Class(class_name),
+    FOREIGN KEY(year_name) REFERENCES Year (year_name)
 );
 

@@ -1,10 +1,10 @@
-CREATE TABLE Parent(
-Stu_ID INT,
-Full_name VARCHAR(100),
-Address VARCHAR(150),
-Mobile VARCHAR(10),
-Relationship VARCHAR(100),
-User_name VARCHAR(150),
-Password VARCHAR(12),
-FOREIGN KEY(Stu_ID) REFERENCES Student(Stu_ID),
-PRIMARY KEY (Stu_ID,Full_name));
+CREATE TABLE parent (
+    parent_id INT NOT NULL PRIMARY KEY,
+    full_name VARCHAR(150),
+    relationship VARCHAR(150),
+    address VARCHAR(150),
+    mobile VARCHAR(10) CHECK (mobile LIKE '0%' AND CHAR_LENGTH(mobile) = 10),
+    user_name VARCHAR(150),
+    password VARCHAR(12),
+    email VARCHAR(200) CHECK (email LIKE '%@%')
+);
