@@ -1,6 +1,9 @@
 function getStudents() {
     
     document.getElementById("attForm").style.display = "block";
+    document.getElementById("rect").style.width = '1000px';
+    document.getElementById("rect").style.justifyContent = 'space-evenly';
+    
 
     fetch('../Backend/teacher_attendance.php', {
         method: 'POST',
@@ -10,8 +13,7 @@ function getStudents() {
         .then(response => response.json())
         .then(students => {
             students.forEach(student=>addRow(student.stu_id,student.fullName));
-        })
-        .catch(err => console.error(err));
+        });
 
 }
 

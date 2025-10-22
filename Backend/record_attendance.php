@@ -1,7 +1,7 @@
 <?php
 
 include 'db_connect.php';
-$stat='';
+$stat=[];
 
 if(isset($_POST['status']))
     {
@@ -17,7 +17,7 @@ if(isset($_POST['status']))
         }
         
 
-        if($stat['status']=='Yes')
+        if($stat!=null && $stat['status']=='Yes')
         {
 
             foreach($present as $stuId)

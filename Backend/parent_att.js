@@ -12,10 +12,31 @@ function att_status()
         console.log("NO!!!");
         document.getElementById("stat").innerHTML+="<i class='fa-regular fa-face-frown fa-beat-fade' style='color: #d3871d;'></i>";
     }
-    });
+    })
+    .catch(err => console.error(err));
 
     
 }
+
+function tdy_att()
+{
+    fetch('../Backend/st_att_per.php')
+    .then(response=>response.text())
+    .then(tdy=>{document.getElementById("tdy").innerHTML=tdy+"%";
+
+        let perc=parseFloat(tdy);
+        if(perc>=80){
+            document.getElementById("tdy").style.color="green";
+        }
+        else if(perc>=40){
+            document.getElementById("tdy").style.color="yellow";
+        }
+        else{
+            document.getElementById("tdy").style.color="red";
+        }
+    });
+}
+
 
 
     
