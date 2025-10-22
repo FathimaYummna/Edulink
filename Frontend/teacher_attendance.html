@@ -11,48 +11,59 @@
 </head>
 
 <body>
-    <div>
-        <form method="post" class="att_forms">
-            <div id="select_class"><label for="class">Select Class : </label></div>
-            <div class="option"><select name="class" id="class">
-                    <option value="" selected disabled>---</option>
-                    <option value=6A>Class 6A</option>
-                    <option value=6B>Class 6B</option>
-                    <option value=7A>Class 7A</option>
-                    <option value=7B>Class 7B</option>
-                    <option value=8A>Class 8A</option>
-                    <option value=8B>Class 8B</option>
-                    <option value=9A>Class 9A</option>
-                    <option value=9B>Class 9B</option>
-                    <option value=10A>Class 10A</option>
-                    <option value=10B>Class 10B</option>
-                </select>
-            </div>
+    <header>
+            <div>Home</div>
+            <div>Academics</div>
+            <div>Attendance</div>
+            <div>Fee Payments</div>
+            <div>Extra-Curriculars</div>
+            <div>Teacher Comments</div>
+        </header>
+        <div id="body1">
+    <div id="rect">
+        <div>
+            <form method="post" class="att_forms">
+                <div id="select_class"><label for="class">Select Class : </label></div>
+                <div class="option"><select name="class" id="class">
+                        <option value="" selected disabled>---</option>
+                        <option value=6A>Class 6A</option>
+                        <option value=6B>Class 6B</option>
+                        <option value=7A>Class 7A</option>
+                        <option value=7B>Class 7B</option>
+                        <option value=8A>Class 8A</option>
+                        <option value=8B>Class 8B</option>
+                        <option value=9A>Class 9A</option>
+                        <option value=9B>Class 9B</option>
+                        <option value=10A>Class 10A</option>
+                        <option value=10B>Class 10B</option>
+                    </select>
+                </div>
 
-            <div><button type="button" onclick="getStudents()" class="enter">Enter</button></div>
+                <div><button type="button" onclick="getStudents()" class="enter">Enter</button></div>
 
-        </form>
+            </form>
+        </div>
+        <script src="../Backend/teacher_att.js"></script>
+
+        <div>
+            <form id="attForm" action='../Backend/record_attendance.php' method='post' style="display:none;">
+                <div class="att_forms">
+                    <div>
+                        <table id='stuAttTable' border="1" class="stTable">
+                            <tr>
+                                <th>Student ID</th>
+                                <th>Student Full Name</th>
+                                <th>Status</th>
+                            </tr>
+                        </table>
+                    </div>
+                    <div><button class="enter" type='submit'>Submit</button></div>
+                </div>
+            </form>
+        </div>
     </div>
-    <script src="../Backend/teacher_att.js"></script>
-
-    <div>
-        <form  id="attForm" action='../Backend/record_attendance.php' method='post'
-            style="display:none;">
-            <div  class="att_forms">
-            <div>
-                <table id='stuAttTable' border="1" class="stTable" >
-                    <tr>
-                        <th>Student ID</th>
-                        <th>Student Full Name</th>
-                        <th>Status</th>
-                    </tr>
-                </table>
-            </div>
-            <div><button class="enter" type='submit'>Submit</button></div>
-            </div>
-        </form>
     </div>
-    
+
 </body>
 
 </html>

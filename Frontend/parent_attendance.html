@@ -13,23 +13,28 @@
 
 <body>
 
-   
-        <header>
-            <div>Home</div>
-            <div>Academics</div>
-            <div>Attendance</div>
-            <div>Fee Payments</div>
-            <div>Extra-Curriculars</div>
-            <div>Teacher Comments</div>
-        </header>
-  
 
-    <div class="attend">
-        <div>
-            <p id="stat">Your child is <span id="att_status"></span> today!</p>
+    <header>
+        <div>Home</div>
+        <div>Academics</div>
+        <div>Attendance</div>
+        <div>Fee Payments</div>
+        <div>Extra-Curriculars</div>
+        <div>Teacher Comments</div>
+    </header>
+
+    <div id="att">
+        <div class="attend">
+            <div>
+                <p id="stat">Your child is <span id="att_status"></span> today!</p>
+            </div>
+
+            <div>
+                <p id="tdy"></p>
+            </div>
+
+            <label>Check your child's attendance percentage for the year:</label><div><button onclick="tdy_att()">Check</button></div>
         </div>
-
-        <div><button onclick="location.href='../Backend/parent_attendance.php'">Enter</button></div>
     </div>
 
 

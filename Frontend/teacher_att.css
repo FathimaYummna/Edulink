@@ -1,17 +1,43 @@
 body
 {
-    background-image: url(../resources/attendance.jpg);
-    display:flex;
     margin:0;
     border:0;
-    min-height: 100vh;
+    padding:0;
+    background-image: url(../resources/attendance.jpg);
+     min-height: 100vh;
     min-width: 100vw;
-    align-items: center;
-    justify-content: space-around;
     background-repeat: no-repeat; 
     background-position: center;
     background-size: 100vw 100vh;
+}
 
+#body1
+{
+    
+    display:flex;
+    margin:0;
+    border:0;
+    min-height: 88vh;
+    min-width: 90vw;
+    align-items: center;
+    justify-content: space-around;
+    
+
+}
+
+header
+{
+    background-color: rgba(19, 100, 199, 0.589);
+    height:75px;
+    width: 100%;
+    margin:0;
+    border:0;
+    padding:0;
+    display : flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    
 }
 
 #select_class
@@ -71,6 +97,8 @@ body
     background-repeat: no-repeat; 
     background-position: center;
     background-size: 350px 300px;
+    margin:0;
+    padding:0;
 
 }
 
@@ -96,4 +124,16 @@ body
 .stTable
 {
     border:2px solid black;
+}
+
+#rect
+{
+    display:flex;
+    background: linear-gradient(to top,rgba(31, 76, 183, 0.4),rgba(176, 201, 239, 0.4));
+    width:450px;
+    height:400px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border:2px solid rgba(67, 5, 125, 0.747);
 }
