@@ -1,4 +1,4 @@
-CREATE TABLE Parent (
+CREATE TABLE parent (
     parent_id INT NOT NULL PRIMARY KEY,
     full_name VARCHAR(150),
     relationship VARCHAR(150),
