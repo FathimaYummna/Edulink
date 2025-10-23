@@ -1,0 +1,50 @@
+<html>
+
+<head>
+    <title>
+        EduLink-Adding New Comments
+    </title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+</body>
+<div>
+    <h3>To add a new comment</h3>
+    <form action="../Backend/add_comments.php" method="post">
+
+        <select name="classname">
+            <option value="" >Select the Class</option>
+        </select><br><br>
+
+        <select name="stuentname">
+        <option value="">Select student name</option>
+        </select><br><br>
+
+        <label> Enter Student ID :</label>
+        <input type="number" name="stuid" placeholder="Student ID" required><br><br>
+        <label>Place relevent improvements or/and appreciations relevent to the student :</label><br>
+        <input type="text" name="comment" placeholder="Write here"><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+<div>
+    <h3>To remove a comments</h3>
+    <a href="delete_comments.html">
+        <button type="submit">Remove</button></a>
+</div>
+<div>
+    <h3>To update a comment</h3>
+    <a href="edit_comments.html">
+        <button type="submit ">Update</button></a>
+</div>
+<div>
+    <h3>To view comments</h3>
+    <a href="view_comments_teachers.html">
+        <button type="submit">View</button></a>
+</div>
+
+</html>

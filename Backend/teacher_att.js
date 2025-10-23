@@ -20,3 +20,10 @@ function getStudents() {
 function addRow(id, sName) {
     document.getElementById("stuAttTable").innerHTML += "<tr><td>" + id + "</td><td>" + sName + "</td><td><input type='checkbox' name='status[]' value='" + id + "'></td></tr>";
 }
+
+function add_class()
+{
+    fetch('../Backend/classnames.php')
+    .then(response=>response.json())
+    .then(classN=>{classN.forEach(classes=>document.getElementById("class").innerHTML+=`<option value=${classes}>Class ${classes}</option>`);});
+}
