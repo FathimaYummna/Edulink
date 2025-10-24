@@ -1,5 +1,4 @@
 USE edulink;
 CREATE TABLE Year (
-    year_id INT AUTO_INCREMENT PRIMARY KEY,
-    year_name VARCHAR(20) NOT NULL UNIQUE  
+    year_name CHAR(4) NOT NULL PRIMARY KEY 
 );
