@@ -1,5 +1,5 @@
 body {
-     margin: 0;
+    margin: 0;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -7,23 +7,23 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    overflow: hidden; /* Prevent scrolling */
+    overflow: hidden;
 }
-.navbar{
-    background-color:rgb(5, 64, 158);
+.navbar {
+    background-color: rgb(5, 64, 158);
     height: 50px;
 }
-.nav-links{
+.nav-links {
     margin-left: 900px;
     padding-top: 6px;
-    color: rgb(0, 0, 0);    
+    color: rgb(0, 0, 0);
 }
 .navbar img {
     position: absolute;
     left: 50%;
     width: 43px;
     height: 40px;
-    border-radius:5px;
+    border-radius: 5px;
     border: 3px solid white;
     margin-left: -700px;
     margin-top: 2px;
@@ -33,14 +33,9 @@ body {
     left: 50%;
     margin-left: -640px;
     font-size: 15px;
-    color:  black;
+    color: black;
     margin-top: 15px;
     font-family: 'Times New Roman', Times, serif;
-    text-shadow:
-        -1px -1px 0 #fff,  
-         1px -1px 0 #fff,
-        -1px  1px 0 #fff,
-         1px  1px 0 #fff;   
 }
 .navbar a {
     color: rgb(5, 118, 170);
@@ -49,26 +44,20 @@ body {
     display: inline-block;
     font-size: 18px;
     font-weight: bold;
-    text-shadow:
-        -1px -1px 0 #ffffff8f,  
-         1px -1px 0 #ffffff90,
-        -1px  1px 0 #ffffff82,
-         1px  1px 0 #ffffff8a;
 }
 .navbar a:hover {
-    color: rgb(32, 119, 225);
+    color: white;
+    background-color: lightblue;
     font-size: x-large;
-    
 }
-
-.signUp form{
+.signUp form, .login form {
     position: absolute;
     background-color: rgba(184, 217, 230, 0.796);
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;   /* Center vertically */
-    align-items: center;       /* Center horizontally */
+    justify-content: center;
+    align-items: center;
     padding: 30px 40px;
     width: 30%;
     height: 60%;
@@ -76,54 +65,41 @@ body {
     margin-top: 5%;
     box-shadow: #84b1cd 0px 2px 2px 4px;
 }
-form h2{
+form h2 {
     margin-top: -10px;
 }
-.card1{
+.card1 {
     width: 300px;
     height: 35px;
     background-color: white;
     border-radius: 10px;
     padding: 5px 10px;
-    margin-top: 15px;
+    margin-bottom: 15px;
     box-shadow: 2px 2px 2px 2px blue;
-
 }
-.card1 img {
-    position: absolute;
-}
-.card1:hover{
+.card1:hover {
     height: 40px;
     width: 310px;
     box-shadow: 2px 2px 2px 2px rgb(2, 2, 31);
-
 }
-
-.login-text:hover{
-    font-size: 20px;
-    font-weight: bold;
-    margin-top: 20px;
-}
-.checkbox{
-    margin-top: 30px;
-    
-}
-.CreateAccount{
+.button, .CreateAccount {
     background-color: aqua;
     height: 30px;
     width: 150px;
     border: none;
     border-radius: 20px;
     box-shadow: 2px 2px 2px 2px blue;
+    display: block;
+    margin: 10px auto;
 }
-.CreateAccount:hover{
+.button:hover, .CreateAccount:hover {
     height: 35px;
     width: 160px;
     box-shadow: 2px 2px 2px 2px blue;
-    cursor:pointer;
+    cursor: pointer;
     font-size: medium;
 }
-.input{
+.input {
     border: none;
     outline: none;
     font-size: 15px;
@@ -131,38 +107,85 @@ form h2{
     height: 100%;
     margin-left: 35px;
 }
-.alert{
-    position: absolute;
-    visibility: hidden;
-    border-radius: 8px;
-    font-size: 18px;
-    margin: 20px auto;
-    color: red;
-    background-color: rgba(255, 255, 255, 0.47);
+.h2 {
+    font-size: 34px;
     text-align: center;
-    animation: fadeInOut 5s 1;
-    
+    margin-bottom: 20px;
 }
-
+.alert {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 25px;
+    border-radius: 8px;
+    background-color: rgba(255, 0, 0, 0.2);
+    color: red;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    text-align: center;
+    z-index: 9999;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    animation: fadeInOut 5s forwards;
+}
 @keyframes fadeInOut {
     0% { opacity: 0; transform: translateY(-20px); }
-    50% { opacity: 1; transform: translateY(0); }
-    100% { opacity: 1; transform: translateY(0); }
+    10% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-20px); }
 }
-.signUp p{
+.signUp p {
     margin-top: 30px;
     font-weight: bold;
 }
-
-
-
-footer{
-   margin-top: auto;
-   color: white;
-   background-color:rgb(5, 64, 158);
-   height: 30px;
-   text-align: center;
+.content {
+    text-align: center;
+    margin-top: 50px;
 }
-footer p{
+.content img {
+    width: 100px;
+    height: 100px;
+}
+.middle-content {
+    text-align: center;
+    margin-top: 50px;
+}
+#first_login button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: aqua;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+#first_login button:hover {
+    background-color: lightblue;
+}
+.dashboard {
+    text-align: center;
+    margin-top: 100px;
+}
+.dashboard h2 {
+    color: white;
+}
+.dashboard button {
+    margin: 10px;
+    padding: 15px 30px;
+    background-color: aqua;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.dashboard button:hover {
+    background-color: lightblue;
+}
+footer {
+    margin-top: auto;
+    color: white;
+    background-color: rgb(5, 64, 158);
+    height: 30px;
+    text-align: center;
+}
+footer p {
     margin-top: 5px;
-}   
+}
