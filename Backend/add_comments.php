@@ -1,43 +1,69 @@
 <?php
 
-include 'db.php';
+include "db.php";
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
          
-    $sql="SELECT class_name FROM subject_teacher WHERE teach_id='$tid'";
-    $result=$conn->query($sql);
+    $tid=1;
 
-    while($value=$result->fetch_assoc()){
-        echo " <option value ='" . $value['class_name'] . "' >" .$value['class_name'] . "</option>";
-    }
-   
-    $class=$_POST['classname'];
-
-    $sql="SELECT f_name FROM student WHERE class_name='$class'";
-    $result=$conn->quay($sql);
-
-    while($value=$result->fetch_assoc()){
-        echo "<option value='" . $value['f_name'] . "'>" . $value['f_name'] . "</option>";
-    }
-
-    $name=$_POST['studentname'];
-
-    $sql="SELECT stu_id FROM stuent WHERE f_name='$name'";
-    $result=$conn->quary($sql);
-    $value= $result->fetch_assoc()['stu_id'];
-
-    $stuid=$_POST['stuid'];
+    $class=$_POST['class'];
+    $stuname=$_POST['stuname'];
+    $stu_id=$_POST['stuid'];
     $comm=$_POST['comment'];
 
-    if($value==$stuid){
-        $sql="INSERT INTO comment(teach_id,stu_id,comment,)
-         VALUES($tid,$stuid,$comm)";
+    $sql= "SELECT stu_id,f_name FROM student WHERE stu_id='$stu_id'";
+    $result=$conn->query($sql);          
+
+    if($result->num_rows>0){
+        $value=$result->fetch_assoc()['f_name'];
+        if($value==$stuname){
+        
+            $sql="SELECT class_name FROM student_class WHERE stu_id='$stu_id'";
+            $result=$conn->query($sql);
+            $value=$result->fetch_assoc()['class_name'];
+            if($value==$class){
+
+                $sql="INSERT INTO comment(stu_id,teach_id,comment,class_name)
+                VALUES('$stu_id' , '$tid' , '$comm' , '$class')";
+                if($conn->query($sql)==TRUE){
+                    echo "<script>
+                    alert('Add the comment successfully !' );
+                    window.location.href='../Frontend/add_comments.html';
+                    </script>";
+                    exit();
+                }
+                else{
+                    echo "error" . $conn->error;
+                }  
+            }
+
+            else{
+                echo"<script>
+                alert('Student Class missmatch student ID: $stu_id is not enrolled to the class: $class');
+                window.location.href='../Frontend/add_comments.html';
+                </script>";
+                exit();
+            }
+        }
+        else{
+            echo"<script>
+                alert('Student Name: $stuname and Student ID:$stu_id is not matched');
+                window.location.href='../Frontend/add_comments.html';
+                </script>";
+                exit();
+        }   
     }
     else{
-        echo "student mismatch";
+        echo"<script>
+            alert('No student from student ID: $stu_id');
+            window.location.href='../Frontend/add_comments.html';
+            </script>";
+            exit();
     }
-    
+
     $conn->close();
 }
 
 ?>
+
+

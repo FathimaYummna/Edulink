@@ -1,80 +1,80 @@
-body {
-    font-family: Arial;
-    background-color: #e6f0fa;
-    display: flex;
-    justify-content: center;
-    color: #1c1c1c;
-}
-
-div {
-    margin-left: 5%;
-    margin-top: 10%;
-    border: 2px solid #0b72e9;
-    width: 25%;
-    height: 55%;
-    background-color: #1fe3f1;
-    border-radius: 10px;
-}
-
-.divadd {
-    margin-left: 6%;
-    margin-top: 3%;
-    border: 2px solid #0b72e9;
-    width: 27%;
-    height: 85%;
-    background-color: #1fe3f1;
-    border-radius: 10px;
-}
-
-.divview {
-    margin-left: 5%;
-    margin-top: 7%;
-    border: 2px solid #0b72e9;
-    width: 27%;
-    height: 70%;
-    background-color: #1fe3f1;
-    border-radius: 10px;
-}
-
-button {
-    width: 70%;
-    padding: 10px;
-    background-color: #0b72e9;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    display: block;
-    margin: 0 auto;
-}
-
-button:hover {
-    background-color: #084aad;
-}
-
-label {
-    font-weight: bold;
-    margin-left: 2%;
-}
-
-input[type="text"],
-input[type="password"],
-input[type="number"],
-input[type="date"],
-textarea,
-select {
-    padding: 2px;
-    border: 1px solid white;
-    border-radius: 6px;
-}
-
-h3,
-h2 {
-    margin-top: 10%;
-    margin-bottom: 10%;
-    text-align: center;
-}
-
-a {
-    text-decoration: none;
-}
+    body {
+        font-family: Arial;
+        background-color: #e6f0fa;
+        display: flex;
+        justify-content: center;
+        color: #1c1c1c;
+    }
+    
+    div {
+        margin-left: 5%;
+        margin-top: 10%;
+        border: 2px solid #0b72e9;
+        width: 25%;
+        height: 60%;
+        background-color: #1fe3f1;
+        border-radius: 10px;
+    }
+    
+    .divadd {
+        margin-left: 6%;
+        margin-top: 3%;
+        border: 2px solid #0b72e9;
+        width: 27%;
+        height: 85%;
+        background-color: #1fe3f1;
+        border-radius: 10px;
+    }
+    
+    .divview {
+        margin-left: 5%;
+        margin-top: 7%;
+        border: 2px solid #0b72e9;
+        width: 27%;
+        height: 70%;
+        background-color: #1fe3f1;
+        border-radius: 10px;
+    }
+    
+    button {
+        width: 70%;
+        padding: 10px;
+        background-color: #0b72e9;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        display: block;
+        margin: 0 auto;
+    }
+    
+    button:hover {
+        background-color: #084aad;
+    }
+    
+    label {
+        font-weight: bold;
+        margin-left: 2%;
+    }
+    
+    input[type="text"],
+    input[type="password"],
+    input[type="number"],
+    input[type="date"],
+    textarea,
+    select {
+        padding: 2px;
+        border: 1px solid white;
+        border-radius: 6px;
+    }
+    
+    h3,
+    h2 {
+        margin-top: 10%;
+        margin-bottom: 10%;
+        text-align: center;
+    }
+    
+    a {
+        text-decoration: none;
+    }

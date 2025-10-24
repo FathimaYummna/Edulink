@@ -10,15 +10,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     if ($result->num_rows > 0) {
         $sql ="DELETE FROM teacher WHERE teach_id='$id'";
-        if ($conn->query($sql) === TRUE) {
-            echo "Teacher removed successfully!";
-        } 
-        else {
+        if ($conn->query($sql) === TRUE) { 
+            echo"<script>
+            alert('The teacher with ID:$tid REmoved successfully !');
+            window.location.href='../Frontend/remove_teachers.html';
+            </script>";
+            exit();  
+        }
+        else{ 
             echo "Error: " . $conn->error;
         }
-        } 
+    } 
     else {
-        echo "No teacher found with Teacher ID " . $id;
+       echo"<script>
+            alert('NO teacher found in ID: $tid');
+            window.location.href='../Frontend/remove_teachers.html';
+            </script>";
+            exit();
         }
     $conn->close();
 }

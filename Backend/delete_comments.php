@@ -3,9 +3,9 @@
 include 'db.php';
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
-
-    
-    $commid=$_POST['commentid'];
+  
+    $tid=1 ; 
+    $commid=$_POST['commid'];
 
     $sql="SELECT teach_id FROM comment WHERE comm_id='$commid'";
     $result=$conn->query($sql);
@@ -16,19 +16,33 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
         if($check==$tid){
             $sql="DELETE FROM comment WHERE comm_id='$commid'";
-            if($conn->query($sql)==True){
-                echo "Delete successfully ";
+
+            if ($conn->query($sql) === TRUE) {
+                echo"<script>
+                alert('Delete the comment successfully !');
+                window.location.href='../Frontend/delete_comments.html';
+                </script>";
+                exit();
             }
-            else{
-              echo "Error ". $conn->error;
+            else{ 
+                echo "Error: " . $conn->error;
             }
         }
+            
         else{
-            echo "You cant delete the comment";
+            echo"<script>
+                alert('You are NOT allowed to delete the comment');
+                window.location.href='../Frontend/delete_comments.html';
+                </script>";
+                exit();
         }
     }
     else{
-        echo "The comment not found";
+         echo"<script>
+            alert('The comment :$commid is Not found');
+            window.location.href='../Frontend/delete_comments.html';
+            </script>";
+            exit();
     }
     $conn->close();
 }

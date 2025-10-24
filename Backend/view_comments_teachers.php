@@ -4,57 +4,31 @@ include 'db.php';
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
 
-    $sql="SELECT class_name FROM subject_teacher WHERE teach_id='$tid'";
-    $result=$conn->query($sql);
+    $tid=1;
 
-    while($value=$result->fetch_assoc()){
-        echo "<option value= '" .$value['class_name']. "' >"  .$value['class_name'] .  "</option>";
-    }
-
-    $class=$_POST['classname'];
     $sdate=$_POST['d1'];
     $edate=$_POST['d2'];
-    $stuid=$_POST['stuid'];
+    $class= !empty($_POST['class']) ? $_POST['class'] : '';
+    $stuid = !empty($_POST['stuid']) ? $_POST['stuid'] : '';
 
     $sql="SELECT comm_id FROM comment WHERE teach_id='$tid'";
     $result=$conn->query($sql);
 
     if($result->num_rows>0){
-        if(empty($stuid) and empty($class)){
-            $sql="SELECT c.comm_id,c.stu_id,s.f_name,c.comment,c.date FROM comment c
-            INNER JOIN student s 
-            ON c.stu_id = s.stu_id
-            WHERE c.teach_id='$tid' 
-            AND
-            date BETWEEN '$sdate' AND '$edate'";
-        }
-        elseif(empty($stuid)){
-            $sql="SELECT c.comm_id,c.stu_id,s.f_name,c.comment,c.date FROM comment c
-            JOIN student s 
-            ON c.stu_id = s.stu_id
-            JOIN subject_teacher o
-            ON c.teach_id=o.teach_id
-            WHERE c.teach_id='$tid' 
-            AND
-            date BETWEEN '$sdate' AND '$edate'
-            AND
-            o.class_name='$class'";
-        }
-        else{
-            $sql="SELECT c.comm_id,c.stu_id,s.f_name,c.comment,c.date FROM comment c
-            JOIN student s 
-            ON c.stu_id = s.stu_id
-            JOIN subject_teacher o
-            ON c.teach_id=o.teach_id
-            WHERE c.teach_id='$tid' 
-            AND
-            date BETWEEN '$sdate' AND '$edate'
-            AND
-            o.class_name='$class'
-            AND
-            c.stu_id='$stuid'";
-        }
 
+        $where="c.date BETWEEN '$sdate' AND '$edate' ";
+        if(!empty($class)){
+            $where .=" AND c.class_name ='$class'";
+        }
+        if(!empty($stuid)){
+            $where .= " AND c.stu_id='$stuid'";
+        }
+       
+        $sql="SELECT c.comm_id,s.stu_id,s.f_name,c.comment,c.date FROM comment c
+        JOIN student s 
+        ON c.stu_id = s.stu_id
+        WHERE $where "; 
+          
         $result=$conn->query($sql);
 
         echo"<table> ";
@@ -76,10 +50,14 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
             echo"</tr>"; 
         }
         echo "</table>";
-
+       
     }
     else{
-        echo "no comments found";
+        echo"<script>
+        alert('The comment :$commid is Not found');
+        window.location.href='../Frontend/view_comments_teaches.html';
+        </script>";
+        exit();
     }
     $conn->close();
 }
