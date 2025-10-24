@@ -1,9 +1,12 @@
 <?php
 session_start();
 
-include 'db_connect.php';
+include '../db.php';
 
-$sql = "SELECT a.status FROM attendance a, student s WHERE a.stu_id=1 AND a.date=curdate() AND a.stu_id=2.stu_id;"; 
+$stuID=$_SESSION['stuID'];
+
+
+$sql = "SELECT a.status FROM attendance a, student s WHERE a.stu_id=$stuID AND a.date=curdate() AND a.stu_id=s.stu_id;"; 
 $result = $conn->query($sql);
 
 $name='Absent';
@@ -18,6 +21,7 @@ if($row=$result->fetch_assoc())
     }
 
 echo json_encode($name);
+
 
 ?>
 

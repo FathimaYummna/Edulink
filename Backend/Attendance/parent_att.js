@@ -1,10 +1,15 @@
+let StudentID;
+
+
 function att_status()
 {
-    fetch('../Backend/parent_attendance.php')
+    fetch('../../Backend/Attendance/parent_attendance.php')
     .then(response=>response.json())
-    .then(stat=>{document.getElementById("att_status").innerHTML+=stat;
-        if(stat=="Present")
+    .then(stat=>{document.getElementById("att_status").innerHTML=stat;
+    console.log(stat);
+    if(stat=="Present")
     {
+        
         console.log("YES!!!");
         document.getElementById("stat").innerHTML+="<i class='fa-regular fa-face-smile fa-beat' style='color: #02d472;'></i>";
     }
@@ -20,7 +25,7 @@ function att_status()
 
 function tdy_att()
 {
-    fetch('../Backend/st_att_per.php')
+    fetch('../../Backend/Attendance/st_att_per.php')
     .then(response=>response.text())
     .then(tdy=>{document.getElementById("tdy").innerHTML=tdy+"%";
 
@@ -37,6 +42,9 @@ function tdy_att()
     });
 }
 
-
-
+function student()
+{
+    StudentID =document.getElementById("stu").value;
+    console.log(StudentID);
+}
     

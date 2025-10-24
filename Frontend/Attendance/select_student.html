@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="parent_attend.css">
+</head>
+
+<body>
+    <header>
+        <div>Home</div>
+        <div>Academics</div>
+        <div>Attendance</div>
+        <div>Fee Payments</div>
+        <div>Extra-Curriculars</div>
+        <div>Teacher Comments</div>
+    </header>
+    <div id="selectSt">
+        <div class="attend">
+            <form method="post" action="../../Backend/Attendance/student.php" >
+                <div class="select-wrapper">
+                <div style="font-size: 30px; color: blue; font-family: Arial;"><label>Select your child's Student ID:</label></div>
+                <div><select name="stu" id="stu" class="stusel">
+                    
+                </select>
+                </div>
+                <div><button type="submit">Enter</button></div>
+                </div>
+            </form>
+        </div>
+   
+    <script src="../../Backend/Attendance/select_student.js"> </script>
+
+    <script>sel_stu()</script>
+
+
+ </div>
+</body>
+
+</html>

@@ -3,7 +3,7 @@ body
     margin:0;
     border:0;
     padding:0;
-    background-image: url(../resources/attendance.jpg);
+    background-image: url(../../resources/attendance.jpg);
      min-height: 100vh;
     min-width: 100vw;
     background-repeat: no-repeat; 
@@ -93,7 +93,7 @@ header
     border-radius: 8px;
     height: 300px;
     width:350px;
-    background-image: url(../resources/att.jpg);
+    background-image: url(../../resources/att.jpg);
     background-repeat: no-repeat; 
     background-position: center;
     background-size: 350px 300px;

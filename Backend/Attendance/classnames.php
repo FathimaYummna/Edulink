@@ -1,6 +1,6 @@
 <?php
 
-include 'db_connect.php';
+include '../db.php';
 
 $sql="SELECT DISTINCT(class_name) FROM class ORDER BY class_name";
 

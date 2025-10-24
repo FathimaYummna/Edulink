@@ -5,7 +5,7 @@ function getStudents() {
     document.getElementById("rect").style.justifyContent = 'space-evenly';
     
 
-    fetch('../Backend/teacher_attendance.php', {
+    fetch('../../Backend/Attendance/teacher_attendance.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: 'class='+document.getElementById("class").value
@@ -23,7 +23,7 @@ function addRow(id, sName) {
 
 function add_class()
 {
-    fetch('../Backend/classnames.php')
+    fetch('../../Backend/Attendance/classnames.php')
     .then(response=>response.json())
     .then(classN=>{classN.forEach(classes=>document.getElementById("class").innerHTML+=`<option value=${classes}>Class ${classes}</option>`);});
 }
