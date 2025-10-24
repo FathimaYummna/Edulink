@@ -1,7 +1,4 @@
-CREATE TABLE Extracurricular (
+CREATE TABLE extracurricular (
     activity_id INT PRIMARY KEY AUTO_INCREMENT,
-    activity_name VARCHAR(50) NOT NULL,
-    description TEXT,
-    start_date DATE,
-    end_date DATE
-);
+    name VARCHAR(50) NOT NULL
+    );
