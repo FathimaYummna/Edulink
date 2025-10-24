@@ -5,6 +5,8 @@ CREATE TABLE student(
     l_name VARCHAR(20),
     dob DATE,
     gender ENUM('M','F'),
-    address VARCHAR(100)
+    address VARCHAR(100),
+    parent_id INT,
+    FOREIGN KEY (parent_id) REFERENCES parent(parent_id)
     );
     
