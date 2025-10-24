@@ -2,14 +2,15 @@
 
 <head>
     <title>EduLink-View Comments</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <div>
         <h3>To view teachers comments</h3>
-        <form action="view_comments.php" method="post">
+        <form action="../Backend/view_comments_parent.php" method="post">
             <label>Student Id:</label>
-            <input type=" number " nam="studentid " placeholder="Enter Your Student 's ID"><br><br>
+            <input type="number" name="stuid" placeholder="Enter Your child's ID" required><br><br>
             <button type="submit">Submit</button>
         </form>
     </div>

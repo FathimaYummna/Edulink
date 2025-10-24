@@ -1,32 +1,33 @@
 <html>
 
 <head>
-    <title>EduLink- Student Monitoring System</title>
+    <title>EduLink- Adding New Teachers</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <div>
+    <div class='divadd'>
         <h3>To add new teachers</h3>
         <form action="../Backend/add_teachers.php" method="post">
             <label>Teacher ID :</label>
-            <input type="number" name="id" placeholder="Teacher's ID" required><br>
+            <input type="number" name="teachid" placeholder="Teacher's ID" required><br><br>
             <label>Name :</label>
-            <input type="text" name="name" placeholder="Name" required><br>
+            <input type="text" name="fullname" placeholder="Name" required><br><br>
             <label>User name :</label>
-            <input type="text" name="username" placeholder="username" required><br>
+            <input type="text" name="username" placeholder="username" required><br><br>
             <label>Password</label>
-            <input type="password" name="password" placeholder="Password" required><br>
+            <input type="password" name="password" placeholder="Password" required><br><br>
             <label>Gender :</label>
             <input type="radio" name="gender" value="M" required> Male
-            <input type="radio" name="gender" value="F" required> Female <br>
+            <input type="radio" name="gender" value="F" required> Female <br><br>
             <label>Email :</label>
-            <input type="text" name="email" placeholder="Email"><br>
+            <input type="text" name="email" placeholder="Email"><br><br>
             <label>Phone No :</label>
-            <input type="text" name="phone" placeholder="Phone No"><br>
+            <input type="text" name="mobile" placeholder="Phone No" required><br><br>
             <label>Qualifications :</label>
-            <input type="text" name="qualifications" placeholder="Qualifications"><br>
+            <input type="text" name="qualifications" placeholder="Qualifications"><br><br>
             <label>Subject ID :</label>
-            <input type="number" name="subid" placeholder="Subject ID"><br>
+            <input type="number" name="subid" placeholder="Subject ID" required><br><br>
             <label>Hire Date :</label>
             <input type="date" name="hiredate" placeholder="Hire Date"><br><br>
             <button type="submit">Submit</button>
@@ -34,13 +35,13 @@
     </div>
     <div>
         <h3>To remove teachers</h3>
-        <a href="C:\Users\iFix Technology\Desktop\EdueLink\Edulink\Frontend\remove_teachers.html ">
-            <button>Remove</button></a>
+        <a href="remove_teachers.html ">
+            <button type="submit">Remove</button></a>
     </div>
     <div>
         <h3>To update teachers' information</h3>
-        <a href="C:\Users\iFix Technology\Desktop\EdueLink\Edulink\Frontend\update_teachers.html ">
-            <button>Update</button></a>
+        <a href="update_teachers.html ">
+            <button type="submit ">Update</button></a>
     </div>
 </body>
 

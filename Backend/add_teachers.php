@@ -4,24 +4,30 @@ include "db.php";
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
 
-    $id =$_POST['id'];
-    $name =($_POST['name']);
+    $tid =$_POST['teachid'];
+    $name =$_POST['fullname'];
     $username =$_POST['username'];
     $password =$_POST['password'];
     $gender =$_POST['gender'];
     $email =$_POST['email'];
-    $phone =$_POST['phone'];
+    $mobile =$_POST['mobile'];
     $qualifications =$_POST['qualifications'];
     $subid =$_POST['subid'];
     $hiredate =$_POST['hiredate'];
 
 
-   $sql="INSERT INTO Teacher(Teacher_ID, Teacher_Name, User_Name, Passwords, Gender, Email, Phone_NO, Qualifications, Subject_ID, Hire_Date)
-   VALUES($id,$name,'$username', '$password', '$gender', '$email', '$phone', '$qualifications', '$subid', '$hiredate');"
+   $sql="INSERT INTO teacher(teach_id,full_ame, user_name, passwords, gender, email,mobile, qualifications, sub_id, hire_date)
+   VALUES('$tid','$name','$username', '$password', '$gender', '$email', '$mobile', '$qualifications', '$subid', '$hiredate')";
 
- if ($conn->query($sql) === TRUE) {
-        echo "Teacher added successfully!";
-    } else {
+    if ($conn->query($sql) === TRUE) {
+        echo"<script>
+            alert('Add teacher successfully !');
+            window.location.href='../Frontend/add_teachers.html';
+            </script>";
+            exit();
+       
+    }
+     else{ 
         echo "Error: " . $conn->error;
     }
 

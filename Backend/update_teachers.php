@@ -4,25 +4,38 @@ include "db.php";
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
 
-    $id=$_POST['id'];
-    $name =$_POST['name'];
-    $username =$_POST['username'];
-    $password =$_POST['password'];
-    $email =$_POST['email'];
-    $phone =$_POST['phone'];
-    $qualifications =$_POST['qualifications'];
-    $subid =$_POST['subid'];
-    
-    $sql = "UPDATE Teacher 
-    SET Teacher_Name='$name', User_Name='$username', Passwords='$password',Email='$email', Phone_NO='$phone', Qualifications='$qualifications', Subject_ID='$subid'
-    WHERE id='$id'";
+    $tid=$_POST['teachid'];
+    $column_name=$_POST['column_name'];
+    $new_values=$_POST['new_value'];
 
-    if ($conn->query($sql) === TRUE) {
-        echo "Teacher update successfully!";
-    } else {
-        echo "Error: " . $conn->error;
+    $sql="SELECT teach_id FROM teacher WHERE teach_id='$tid'";
+    $result=$conn->query($sql);
+
+    if($result->num_rows>0){
+
+        $sql = "UPDATE teacher 
+        SET $column_name='$new_values'
+        WHERE teach_id='$tid' ";
+
+        if ($conn->query($sql) === TRUE) { 
+            echo"<script>
+            alert('Update teacher's information successfully !');
+            window.location.href='../Frontend/update_teachers.html';
+            </script>";
+            exit();
+        }
+        else{ 
+            echo "Error: " . $conn->error;
+    } 
     }
+    else{
 
+        echo"<script>
+            alert('Teacher ID :$tid is Not found');
+            window.location.href='../Frontend/update_teachers.html';
+            </script>";
+            exit();
+    }
     $conn->close();
 
 }

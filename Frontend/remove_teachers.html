@@ -1,26 +1,28 @@
 <html>
 
 <head>
-    <title>EduLink- Student Monitoring System</title>
+    <title>EduLink-Removing Teachers</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <div>
         <h3>To add new teachers</h3>
-        <a href="C:\Users\iFix Technology\Desktop\EdueLink\Edulink\Frontend\add_teachers.html">
-            <button type="button">Add</button></a>
+        <a href="add_teachers.html">
+            <button type="submit">Add</button></a>
     </div>
     <div>
         <h3>To remove teachers</h3>
-        <form action="remove_teachers.php" method="post">
-            <label>Enter teacher's ID</label> t <input type="number" name="id" placeholder="Teacher id" required><br><br>
+        <form action="../Backend/remove_teachers.php" method="post">
+            <label>Enter teacher's ID</label>
+            <input type="number" name="teachid" placeholder="Teacher id" required><br><br>
             <button type="submit">Submit</button>
         </form>
     </div>
     <div>
         <h3>To update teachers' information</h3>
-        <a href="C:\Users\iFix Technology\Desktop\EdueLink\Edulink\Frontend\update_teachers.html">
-            <button>Update</button></a>
+        <a href="update_teachers.html">
+            <button type="submit">Update</button></a>
     </div>
 
 </body>
