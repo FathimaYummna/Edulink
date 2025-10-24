@@ -59,9 +59,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     );
 
     if ($stmt->execute()) {
+<<<<<<< HEAD
         echo "<div class='success'>Teacher registered successfully!</div>";
     } else {
         echo "<div class='error'>Insert error: " . $stmt->error."</div>";
+=======
+        echo "<div class='alert.success'>Teacher registered successfully!</div>";
+    } else {
+        echo "<div class='alert error'>Insert error: " . $stmt->error."</div>";
+>>>>>>> origin/Yummna
     }
 
     $stmt->close();
@@ -69,13 +75,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }
 
 echo '<style>
+<<<<<<< HEAD
 .sucess {
+=======
+.alert {
+>>>>>>> origin/Yummna
     display: block;
     margin: 15px auto;
     padding: 10px 20px;
     border-radius: 8px;
     text-align: center;
     font-family: Arial, sans-serif;
+<<<<<<< HEAD
     font-size: 20px;
     background-color: #d4edda;
     color: #1b7e32ff;
@@ -90,6 +101,16 @@ echo '<style>
     font-size: 20px;
     background-color: #f8d7da;
     color: #ca1628ff;
+=======
+}
+.alert.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+.alert.error {
+    background-color: #f8d7da;
+    color: #721c24;
+>>>>>>> origin/Yummna
 }
 </style>';
 

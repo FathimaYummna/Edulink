@@ -1,10 +1,12 @@
-CREATE TABLE Student(
-	Stu_ID INT NOT NULL PRIMARY KEY,
-    Initials VARCHAR(8),
-    F_Name VARCHAR(20),
-    L_Name VARCHAR(20),
-    DOB DATE,
-    Gender ENUM ('M','F'),
-    Address VARCHAR(50)
+CREATE TABLE student(
+	stu_id INT AUTO_INCREMENT PRIMARY KEY,
+    initials VARCHAR(10),
+    f_name VARCHAR(20),
+    l_name VARCHAR(20),
+    dob DATE,
+    gender ENUM('M','F'),
+    address VARCHAR(100),
+    parent_id INT,
+    FOREIGN KEY (parent_id) REFERENCES parent(parent_id)
     );
     

@@ -39,6 +39,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/Yummna
 echo '<style>
 .alert {
     display: block;

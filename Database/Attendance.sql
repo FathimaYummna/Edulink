@@ -1,6 +1,7 @@
-CREATE TABLE Attendance(
-	Stu_ID INT NOT NULL,
-    day_id DATE,
-    A_Status ENUM("Present", "Absent"),
-    FOREIGN KEY (Stu_ID) REFERENCES Student(Stu_ID)
+CREATE TABLE attendance(
+	stu_id INT,
+    date DATE,
+    status ENUM('Present','Absent'),
+    FOREIGN KEY(stu_id) REFERENCES student(stu_id),
+    FOREIGN KEY(date) REFERENCES date(date)
     );

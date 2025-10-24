@@ -7,3 +7,4 @@ CREATE TABLE student_class (
     FOREIGN KEY (class_name) REFERENCES class(class_name),
     FOREIGN KEY(year_name) REFERENCES year(year_name)
 );
+

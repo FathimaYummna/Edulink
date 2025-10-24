@@ -1,5 +1,5 @@
 CREATE TABLE Fees(
-	Fee_ID CHAR(4),
-    Fee_Name VARCHAR(20),
-    Amount DECIMAL(7,2)
+	fee_id CHAR(4),
+    fee_name VARCHAR(20),
+    amount DECIMAL(7,2)
     );

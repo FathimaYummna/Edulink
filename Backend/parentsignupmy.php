@@ -58,14 +58,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         while ($row = $result->fetch_assoc()) {
             if (password_verify($password_raw, $row['password'])) {
+<<<<<<< HEAD
                 echo "<div class='error'>This password is already used. Please create a different password.</div>";
+=======
+                echo "<div class='alert.error'>This password is already used. Please create a different password.</div>";
+>>>>>>> origin/Yummna
                 exit;
             }
         }
         $stmt->close();
 
         if (!preg_match('/^(?=.*[A-Z])(?=.*\d).{12,}$/', $password_raw)) {
+<<<<<<< HEAD
             echo "<div class='error'>Password must have at least one uppercase letter, one number, and be at least 12 characters long.</div>";
+=======
+            echo "<div class='alert.error'>Password must have at least one uppercase letter, one number, and be at least 12 characters long.</div>";
+>>>>>>> origin/Yummna
             exit;
         }
 
@@ -73,7 +81,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $stmt = $conn->prepare("INSERT INTO parent (full_name, address, mobile, relationship, user_name, password, email) VALUES (?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("sssssss", $fullname, $address, $mobile, $relationship, $username, $hashedPassword, $email);
         if (!$stmt->execute()) {
+<<<<<<< HEAD
             echo "<div class='error'>Error registering parent: " . htmlspecialchars($stmt->error) . "</div>";
+=======
+            echo "<div class='alert.error'>Error registering parent: " . htmlspecialchars($stmt->error) . "</div>";
+>>>>>>> origin/Yummna
             exit;
         }
         $parentid = $conn->insert_id;
@@ -87,7 +99,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $stmt->close();
 
     if ($existingParentId !== null) {
+<<<<<<< HEAD
         echo "<div class='error'>Student is already linked to a parent.</div>";
+=======
+        echo "<div class='alert.error'>Student is already linked to a parent.</div>";
+>>>>>>> origin/Yummna
         $conn->close();
         exit;
     }
@@ -95,15 +111,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $stmt = $conn->prepare("UPDATE student SET parent_id = ? WHERE stu_id = ?");
     $stmt->bind_param("ii", $parentid, $stid);
     if ($stmt->execute()) {
+<<<<<<< HEAD
         echo "<div class='success'>Parent registered successfully!</div>";
     } else {
         echo "<div class='error'>Error linking student: " . htmlspecialchars($stmt->error) . "</div>";
+=======
+        echo "<div class='alert.success'>Parent registered successfully!</div>";
+    } else {
+        echo "<div class='alert.error'>Error linking student: " . htmlspecialchars($stmt->error) . "</div>";
+>>>>>>> origin/Yummna
     }
     $stmt->close();
     $conn->close();
 }
 
 echo '<style>
+<<<<<<< HEAD
 .sucess {
     display: block;
     margin: 15px auto;
@@ -125,6 +148,26 @@ echo '<style>
     font-size: 20px;
     background-color: #f8d7da;
     color: #ca1628ff;
+=======
+.alert {
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin: 20px auto;
+    width: fit-content;
+    font-size: 15px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    opacity: 0;
+    animation: fadeAlert 5s forwards;
+}
+.alert.success { background-color: #d4edda; color: #155724; }
+.alert.error { background-color: #f8d7da; color: #721c24; }
+@keyframes fadeAlert {
+    0% { opacity: 0; transform: translateY(-10px); }
+    10% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-10px); }
+>>>>>>> origin/Yummna
 }
 </style>';
 ?>
