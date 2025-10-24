@@ -17,15 +17,24 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         SET $column_name='$new_values'
         WHERE teach_id='$tid' ";
 
-        if ($conn->query($sql) === TRUE) {
-            echo "Teacher update successfully!";
-        } else {
-            echo "Error: " . $conn->error;
+        if ($conn->query($sql) === TRUE) { 
+            echo"<script>
+            alert('Update teacher's information successfully !');
+            window.location.href='../Frontend/update_teachers.html';
+            </script>";
+            exit();
         }
+        else{ 
+            echo "Error: " . $conn->error;
+    } 
     }
     else{
 
-        echo "Teache ID ". $tid."not found";
+        echo"<script>
+            alert('Teacher ID :$tid is Not found');
+            window.location.href='../Frontend/update_teachers.html';
+            </script>";
+            exit();
     }
     $conn->close();
 

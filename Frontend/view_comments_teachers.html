@@ -26,24 +26,33 @@
 
     <div class="divview">
         <h3>To view comments</h3>
-        <form action="../Backend/view_comments_teachers.php " method="post ">
+        <form action="../Backend/view_comments_teachers.php" method="post">
             <label>Date From :</label>
-            <input type="date " name="d1 " placeholder="Date from "><br><br>
+            <input type="date" name="d1" placeholder="Date from"><br><br>
             <label>Date To :</label>
-            <input type="date " name="d2 " placeholder="Date to "><br><br>
+            <input type="date" name="d2" placeholder="Date to"><br><br>
 
             <h4>To view specific comments given to a class</h4>
 
-            <select name="classname">
-            <option value=" ">Select the class</option>
+            <label>Select the class </label>
+            <select name="class" id="class">
+                <option value=""> select the class</option>
             </select>
 
             <h4>To view specific comment given to a student</h4>
             <label>Enter student ID :</label>
-            <input type="number " name="stuid " placeholder="Student ID "><br><br>
+            <input type="number" name="stuid" placeholder="Student ID"><br><br>
 
-            <button type="submit ">View</button>
+            <button type="submit">View</button>
         </form>
+        <script>
+            fetch('../Backend/get_classes.php')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('class').innerHTML += data;
+                })
+                .catch(error => console.error('Error', error));
+        </script>
     </div>
 </body>
 

@@ -20,9 +20,12 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
    VALUES('$tid','$name','$username', '$password', '$gender', '$email', '$mobile', '$qualifications', '$subid', '$hiredate')";
 
     if ($conn->query($sql) === TRUE) {
-        
-        header('Location: ../Frontend/add_teachers.html');
-      
+        echo"<script>
+            alert('Add teacher successfully !');
+            window.location.href='../Frontend/add_teachers.html';
+            </script>";
+            exit();
+       
     }
      else{ 
         echo "Error: " . $conn->error;

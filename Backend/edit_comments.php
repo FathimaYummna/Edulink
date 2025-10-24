@@ -4,6 +4,8 @@ include 'db.php';
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
 
+    $tid=1;
+
     $commid=$_POST['commid'];
     $new_value=$_POST['newcomm'];
 
@@ -12,26 +14,38 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
     if($result->num_rows>0){
         $check=$result->fetch_assoc()['teach_id'];
-
+    
         if($check==$tid){
 
             $sql="UPDATE comment 
             SET comment='$new_value'
             WHERE comm_id='$commid'";
 
-            if($conn->query($sql)==True){
-                echo "success";
+            if ($conn->query($sql) === TRUE) {
+                echo"<script>
+                alert('Update the comment successfully !');
+                window.location.href='../Frontend/update_comments.html';
+                </script>";
+                exit();
             }
-            else{
-                echo"error".$conn->error;
+            else{ 
+                echo "Error: " . $conn->error;
             }
         }
         else{
-            echo"you cant update";
+            echo"<script>
+            alert('You are NOT allowed to delete the comment');
+            window.location.href='../Frontend/update_comments.html';
+            </script>";
+            exit();
         }
     }
     else{
-        echo "no comment found";
+        echo"<script>
+        alert('The comment :$commid is Not found');
+        window.location.href='../Frontend/update_comments.html';
+        </script>";
+        exit();
     }
     $conn->close();
 }
