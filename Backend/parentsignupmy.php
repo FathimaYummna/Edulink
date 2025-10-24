@@ -1,5 +1,5 @@
 <?php
-include 'dbconnection.php'; 
+include 'dbconnection.php';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
@@ -13,110 +13,115 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $password_raw = $_POST['password'];
 
 
-    $checkStudent = $conn->prepare("SELECT Stu_ID FROM student WHERE Stu_ID = ?");
-    if (!$checkStudent) {
-        echo "<div class='alert error'>Database error (student check): " . htmlspecialchars($conn->error) . "</div>";
+    $stmt = $conn->prepare("SELECT stu_id FROM student WHERE stu_id = ?");
+    $stmt->bind_param("i", $stid);
+    $stmt->execute();
+    $stmt->store_result();
+    if ($stmt->num_rows === 0) {
+        echo "<div class='alert.error'>Student ID does not exist. Add the student first.</div>";
         exit;
     }
+    $stmt->close();
 
-    $checkStudent->bind_param("i", $stid);
-    $checkStudent->execute();
-    $checkStudent->store_result(); 
+    $parentid = null;
 
-    if ($checkStudent->num_rows === 0) {
-        echo "<div class='alert error'> Error: Student with ID " . htmlspecialchars($stid) . " does not exist. Cannot add parent.</div>";
-        $checkStudent->close();
-        exit;
+    $stmt = $conn->prepare("SELECT parent_id, user_name, password FROM parent WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $stmt->store_result();
+    if ($stmt->num_rows > 0) {
+        $stmt->bind_result($dbParentID, $dbUserName, $dbPassword);
+        $stmt->fetch();
+        if (!password_verify($password_raw, $dbPassword)) {
+            echo "<div class='alert.error'>Parent is already registered. Please enter correct password.</div>";
+            exit;
+        }
+        $parentid = $dbParentID;
     }
-    $checkStudent->close();
-
-   
-    if (!preg_match('/^(?=.*[A-Z])(?=.*\d).{12,}$/', $password_raw)) {
-        echo "<div class='alert error'> Password must contain at least one uppercase letter, one number, and be at least 12 characters long.</div>";
-        exit;
-    }
-
-    $hashedPassword = password_hash($password_raw, PASSWORD_BCRYPT);
+    $stmt->close();
 
   
-    $check = $conn->prepare("SELECT Email, User_Name FROM parent WHERE Email = ? OR User_Name = ?");
-    if (!$check) {
-        echo "<div class='alert error'>Database error (email/username check): " . htmlspecialchars($conn->error) . "</div>";
-        exit;
-    }
+    if (!$parentid) {
+        $stmt = $conn->prepare("SELECT parent_id FROM parent WHERE user_name = ?");
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        $stmt->store_result();
+        if ($stmt->num_rows > 0) {
+            echo "<div class='alert.error'>Username already taken. Choose another username.</div>";
+            exit;
+        }
+        $stmt->close();
 
-    $check->bind_param("ss", $email, $username);
-    $check->execute();
-    $check->store_result();
+        $stmt = $conn->prepare("SELECT password FROM parent");
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-    if ($check->num_rows > 0) {
-        $check->bind_result($existingEmail, $existingUsername);
-        while ($check->fetch()) {
-            if ($existingEmail === $email) {
-                echo "<div class='alert error'> Error: Email already registered.</div>";
-                $check->close();
-                $conn->close();
-                exit;
-            }
-            if ($existingUsername === $username) {
-                echo "<div class='alert error'> Error: Username already taken.</div>";
-                $check->close();
-                $conn->close();
+        while ($row = $result->fetch_assoc()) {
+            if (password_verify($password_raw, $row['password'])) {
+                echo "<div class='alert.error'>This password is already used. Please create a different password.</div>";
                 exit;
             }
         }
-    }
-    $check->close();
+        $stmt->close();
 
-    
-    $sql = "INSERT INTO parent (Stu_ID, Full_name, Address, Mobile, Relationship, User_Name, Password, Email)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-    $stmt = $conn->prepare($sql);
-    if (!$stmt) {
-        echo "<div class='alert error'>Database error (insert): " . htmlspecialchars($conn->error) . "</div>";
+        if (!preg_match('/^(?=.*[A-Z])(?=.*\d).{12,}$/', $password_raw)) {
+            echo "<div class='alert.error'>Password must have at least one uppercase letter, one number, and be at least 12 characters long.</div>";
+            exit;
+        }
+
+        $hashedPassword = password_hash($password_raw, PASSWORD_BCRYPT);
+        $stmt = $conn->prepare("INSERT INTO parent (full_name, address, mobile, relationship, user_name, password, email) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("sssssss", $fullname, $address, $mobile, $relationship, $username, $hashedPassword, $email);
+        if (!$stmt->execute()) {
+            echo "<div class='alert.error'>Error registering parent: " . htmlspecialchars($stmt->error) . "</div>";
+            exit;
+        }
+        $parentid = $conn->insert_id;
+        $stmt->close();
+    }
+    $stmt = $conn->prepare("SELECT parent_id FROM student WHERE stu_id = ?");
+    $stmt->bind_param("i", $stid);
+    $stmt->execute();
+    $stmt->bind_result($existingParentId);
+    $stmt->fetch();
+    $stmt->close();
+
+    if ($existingParentId !== null) {
+        echo "<div class='alert.error'>Student is already linked to a parent.</div>";
+        $conn->close();
         exit;
     }
 
-    $stmt->bind_param(
-        "isssssss",
-        $stid,
-        $fullname,
-        $address,
-        $mobile,
-        $relationship,
-        $username,
-        $hashedPassword,
-        $email
-    );
-
+    $stmt = $conn->prepare("UPDATE student SET parent_id = ? WHERE stu_id = ?");
+    $stmt->bind_param("ii", $parentid, $stid);
     if ($stmt->execute()) {
-        echo "<div class='alert success'> Parent registered successfully!</div>";
+        echo "<div class='alert.success'>Parent registered successfully!</div>";
     } else {
-        echo "<div class='alert error'> Insert error: " . htmlspecialchars($stmt->error) . "</div>";
+        echo "<div class='alert.error'>Error linking student: " . htmlspecialchars($stmt->error) . "</div>";
     }
-
     $stmt->close();
     $conn->close();
 }
 
 echo '<style>
 .alert {
-    display: block;
-    margin: 15px auto;
-    padding: 10px 20px;
+    padding: 12px 20px;
     border-radius: 8px;
+    margin: 20px auto;
+    width: fit-content;
+    font-size: 15px;
     text-align: center;
-    font-family: Arial, sans-serif;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    opacity: 0;
+    animation: fadeAlert 5s forwards;
 }
-.alert.success {
-    background-color: #d4edda;
-    color: #155724;
-}
-.alert.error {
-    background-color: #f8d7da;
-    color: #721c24;
+.alert.success { background-color: #d4edda; color: #155724; }
+.alert.error { background-color: #f8d7da; color: #721c24; }
+@keyframes fadeAlert {
+    0% { opacity: 0; transform: translateY(-10px); }
+    10% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-10px); }
 }
 </style>';
-
-
 ?>

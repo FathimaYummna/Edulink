@@ -7,37 +7,47 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $username = trim($_POST['username']);
     $email = trim($_POST['email']);
     $password = trim($_POST['password']); 
-
-    
-    $stmt = $conn->prepare("SELECT stu_id, password FROM parent WHERE email = ? AND user_name = ?");
-    if (!$stmt) die("Prepare failed: " . $conn->error);
+    $stmt = $conn->prepare("SELECT parent_id, password FROM parent WHERE email = ? AND user_name = ?");  // Added password to SELECT
+    if (!$stmt) 
+        die("Prepare failed: " . $conn->error);
 
     $stmt->bind_param("ss", $email, $username);
     $stmt->execute();
     $stmt->store_result();
 
     if ($stmt->num_rows > 0) {
-        $stmt->bind_result($studentId, $dbPassword);
-        $stmt->fetch();
+        $parentId = null;  
+        $dbPassword = null;  
+        $stmt->bind_result($parentId, $dbPassword);
+        $stmt->fetch();  
 
         if (password_verify($password, $dbPassword)) {
            
-            $_SESSION['student_id'] = $studentId;
-            $_SESSION['parent_username'] = $username;
+            $_SESSION['parent_id'] = $parentId;
+            $_SESSION['parent_username'] = $username; 
+            $stuStmt = $conn->prepare("SELECT stu_id FROM student WHERE parent_id = ? LIMIT 1");
+            $stuStmt->bind_param("i", $parentId);
+            $stuStmt->execute();
+            $stuId = null;  
+            $stuStmt->bind_result($stuId);
+            if ($stuStmt->fetch()) {
+                $_SESSION['stu_id'] = $stuId;
+            }
+            $stuStmt->close();
+
+           
             header("Location: ../Frontend/parentdashboard.html");
             exit();
-
         } else {
-            echo '<div class="alert error">Wrong password!</div>';
+            echo '<div class="alert.error">Wrong password!</div>';
         }
     } else {
-        echo '<div class="alert error">Email or username not found!</div>';
+        echo '<div class="alert.error">Email or username not found!</div>';
     }
 
     $stmt->close();
     $conn->close();
 }
-
 
 echo '<style>
 .alert {
@@ -58,6 +68,3 @@ echo '<style>
 }
 </style>';
 ?>
-
-
-
