@@ -1,7 +1,7 @@
 <?php
 include 'db.php';
 
-   $tid=1;
+   $tid=2;
    $sql="SELECT class_name FROM subject_class_teacher WHERE teach_id=$tid";
    $result= $conn->query($sql);
     while($value=$result->fetch_assoc()){

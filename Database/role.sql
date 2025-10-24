@@ -1,0 +1,2 @@
+CEATE TABLE role(
+role VARCHAR(20) PRIMARY KEY);

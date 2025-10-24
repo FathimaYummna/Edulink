@@ -14,10 +14,11 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $qualifications =$_POST['qualifications'];
     $subid =$_POST['subid'];
     $hiredate =$_POST['hiredate'];
-
-
-   $sql="INSERT INTO teacher(teach_id,full_ame, user_name, passwords, gender, email,mobile, qualifications, sub_id, hire_date)
-   VALUES('$tid','$name','$username', '$password', '$gender', '$email', '$mobile', '$qualifications', '$subid', '$hiredate')";
+    
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+ 
+   $sql="INSERT INTO teacher(teach_id,full_name, user_name, passwords, gender, email,mobile, qualifications, sub_id, hire_date)
+   VALUES('$tid','$name','$username', '$hashed_password', '$gender', '$email', '$mobile', '$qualifications', '$subid', '$hiredate')";
 
     if ($conn->query($sql) === TRUE) {
         echo"<script>

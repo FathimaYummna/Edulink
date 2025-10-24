@@ -4,6 +4,10 @@
         display: flex;
         justify-content: center;
         color: #1c1c1c;
+        background-image: url('../resources/background_image.jpeg');
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
     }
     
     div {
@@ -14,6 +18,11 @@
         height: 60%;
         background-color: #1fe3f1;
         border-radius: 10px;
+    }
+    
+    div:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
     }
     
     .divadd {
@@ -50,6 +59,7 @@
     
     button:hover {
         background-color: #084aad;
+        font-size: x-large;
     }
     
     label {
@@ -77,4 +87,37 @@
     
     a {
         text-decoration: none;
+    }
+    
+    .table {
+        border-collapse: separate;
+        border-spacing: 10px;
+        background-color: #ffffff;
+        border: 2px solid #003366;
+        border-radius: 10px;
+        font-size: 17px;
+        width: 50%;
+        height: 50%;
+        margin-top: 10%;
+        text-align: center;
+    }
+    
+    .th {
+        background-color: #003366;
+        color: white;
+        padding: 5px;
+        border-radius: 5px;
+        height: 5px;
+    }
+    
+    .td {
+        background-color: #e6f0fa;
+        padding: 5px;
+        border-radius: 6px;
+    }
+    
+    .hd {
+        text-align: center;
+        padding: 15px;
+        height: 6px;
     }

@@ -4,8 +4,6 @@ include "db.php";
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
          
-    $tid=1;
-
     $class=$_POST['class'];
     $stuname=$_POST['stuname'];
     $stu_id=$_POST['stuid'];

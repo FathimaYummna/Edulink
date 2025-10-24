@@ -30,26 +30,34 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         WHERE $where "; 
           
         $result=$conn->query($sql);
+        echo"<html>";
+        echo"<head> <link rel='stylesheet' href='../Frontend/styles.css'></head>" ;  
+        echo"<body class='tablebody'>";
 
-        echo"<table> ";
+        echo"<table class='table'> ";
         echo"<tr>";
-        echo"<th>Comment ID</th>";
-        echo"<th>Student ID</th>";
-        echo"<th>Student name</th>";
-        echo"<th>Comment</th>";
-        echo"<th>Date</th>";
+        echo"<td class='hd'>Comments</th>";
+        echo"<tr>";
+        echo"<tr>";
+        echo"<th class='th'>Comment ID</th>";
+        echo"<th class='th'>Student ID</th>";
+        echo"<th class='th'>Student name</th>";
+        echo"<th class='th'>Comment</th>";
+        echo"<th class='th'>Date</th>";
         echo"</tr>";
 
         while($value=$result->fetch_assoc()){
             echo"<tr>";
-            echo"<td>" . htmlspecialchars($value['comm_id']) . "</td>";
-            echo"<td>" . htmlspecialchars($value['stu_id']) . "</td>";
-            echo"<td>" . htmlspecialchars($value['f_name']) . "</td>";
-            echo"<td>" . htmlspecialchars($value['comment']) . "</td>";
-            echo"<td>" . htmlspecialchars($value['date']) . "</td>";
+            echo"<td class='td'>" . htmlspecialchars($value['comm_id']) . "</td>";
+            echo"<td class='td'>" . htmlspecialchars($value['stu_id']) . "</td>";
+            echo"<td class='td'>" . htmlspecialchars($value['f_name']) . "</td>";
+            echo"<td class='td'>" . htmlspecialchars($value['comment']) . "</td>";
+            echo"<td class='td'>" . htmlspecialchars($value['date']) . "</td>";
             echo"</tr>"; 
         }
         echo "</table>";
+        echo"</body>";
+        echo"</html>";
        
     }
     else{

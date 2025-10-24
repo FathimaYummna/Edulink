@@ -1,0 +1,87 @@
+<?php
+session_start();
+
+
+if (!isset($_SESSION['Year'], $_SESSION['Term'], $_SESSION['Class'], $_SESSION['SubjectId'], $_SESSION['Subject'])) {
+    header("Location: enterDetailsToEnterMarks.php");
+    exit();
+}
+
+$year = $_SESSION['Year'];
+$term_id = $_SESSION['Term'];
+$class = $_SESSION['Class'];
+$subject_name = $_SESSION['Subject'];
+$subject_id = $_SESSION['SubjectId'];
+
+$conn = new mysqli("localhost", "root", "", "edulink");
+if ($conn->connect_error) die("Database Connection Failed: " . $conn->connect_error);
+
+
+$termResult = $conn->query("SELECT term_name FROM term WHERE term_id='$term_id' LIMIT 1");
+$termName = ($termResult && $termResult->num_rows > 0) ? $termResult->fetch_assoc()['term_name'] : '';
+
+
+$sql = "SELECT s.stu_id AS Student_ID, CONCAT(s.f_name,' ',s.l_name) AS Student_Name
+        FROM student s
+        INNER JOIN student_subject ss ON s.stu_id = ss.stu_id AND ss.sub_id='$subject_id' AND ss.status='following'
+        INNER JOIN student_class sc ON s.stu_id = sc.stu_id AND sc.class_name='$class' AND sc.year_name='$year'
+        LEFT JOIN marks m ON s.stu_id = m.stu_id AND m.sub_id='$subject_id' AND m.term_id='$term_id'
+        WHERE m.stu_id IS NULL
+        ORDER BY s.stu_id";
+
+$result = $conn->query($sql);
+if (!$result) die("Query Error: " . $conn->error);
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Enter Marks</title>
+<link rel="stylesheet" href="../Frontend/style.css">
+</head>
+<body>
+<center>
+    <h2>Enter Marks for <?php echo htmlspecialchars($class); ?> - <?php echo htmlspecialchars($subject_name); ?></h2>
+    <h3>Term: <?php echo htmlspecialchars($termName); ?></h3>
+
+<?php if($result->num_rows > 0): ?>
+    <form action="submitAllMarks.php" method="post">
+        <table border="1">
+            <tr>
+                <th>Student ID</th>
+                <th>Student Name</th>
+                <th>Marks</th>
+            </tr>
+            <?php while($row = $result->fetch_assoc()): ?>
+            <tr>
+                <td><?php echo $row['Student_ID']; ?></td>
+                <td><?php echo $row['Student_Name']; ?></td>
+                <td>
+                    <input type="number" name="marks[<?php echo $row['Student_ID']; ?>]" min="0" max="100">
+                </td>
+            </tr>
+            <?php endwhile; ?>
+        </table><br>
+        <input type="submit" name="submitAllMarks" value="Submit Marks">
+    </form>
+<?php else: ?>
+    <p>All students already have marks or no students follow this subject.</p>
+    <button onclick="window.location.href='taskSelect.php'">Back to selection</button>
+<?php endif; ?>
+</center>
+</body>
+</html>
+<?php $conn->close(); ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
