@@ -1,6 +1,6 @@
 <?php
 
-include 'db_connect.php';
+include 'db.php';
 
 if($_SERVER["REQUEST_METOD"]="POST")
 {
@@ -34,7 +34,7 @@ else
 $sql1="INSERT INTO fee_Payment VALUES ($stu_id,1,'$status',$amt,'$month')";
 
 if ($conn->query($sql1) === TRUE) {
-    header('Location: ../Frontend/fees.html');
+    header('Location: ../Frontend/fees_payment.html');
     exit();
 }
 

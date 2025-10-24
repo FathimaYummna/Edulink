@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST")
         }
     }
 
-    echo json_encode($students);//send the data to php file
+    echo json_encode($students);//send the data to js file
   
 }
 

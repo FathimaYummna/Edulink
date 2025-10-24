@@ -1,34 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form action="../Backend/fees.php" method="POST">
-        <label for="student">Student ID:</label>
-        <input type="text" name="student">
-        <label for="fee_type">Monthly Fees</label>
-        <select name="month" id="">
-            <option value="jan">January</option>
-            <option value="jan">February</option>
-            <option value="jan">March</option>
-            <option value="jan">April</option>
-            <option value="jan">May</option>
-            <option value="jan">June</option>
-            <option value="jan">July</option>
-            <option value="jan">August</option>
-            <option value="jan">September</option>
-            <option value="jan">October</option>
-            <option value="jan">November</option>
-            <option value="jan">December</option>
-            </option>
-        </select>
-        <label for="amt" >Amount</label>
-        <input type="number" name="amount">
+    <title>Fees Payment</title>
 
-        <button type="submit">Submit</button>
-    </form>
+    <link rel="stylesheet" href="insert_student.css">
+
+</head>
+
+<body>
+    <header>
+        <div>Home</div>
+        <div>Academics</div>
+        <div>Attendance</div>
+        <div>Fee Payments</div>
+        <div>Extra-Curriculars</div>
+        <div>Teacher Comments</div>
+    </header>
+    <div id="body1">
+        <form action="../Backend/fees.php" method="POST" id="inSt-wrapper">
+            <div><label for="student">Student ID:</label>
+                <input type="text" name="student">
+            </div>
+            <div><label for="fee_type">Monthly Fees</label>
+                <select name="month" id="">
+                    <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March">March</option>
+                    <option value="April">April</option>
+                    <option value="May">May</option>
+                    <option value="June">June</option>
+                    <option value="July">July</option>
+                    <option value="August">August</option>
+                    <option value="September">September</option>
+                    <option value="October">October</option>
+                    <option value="November">November</option>
+                    <option value="December">December</option>
+                    </option>
+                </select>
+            </div>
+            <div><label for="amt">Amount</label>
+                <input type="number" name="amount">
+            </div>
+
+            <div><button type="submit">Submit</button></div>
+        </form>
+    </div>
 </body>
+
 </html>
