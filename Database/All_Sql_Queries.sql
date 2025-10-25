@@ -29,7 +29,7 @@ CREATE TABLE teacher(
 teach_id INT NOT NULL PRIMARY KEY,
 full_name VARCHAR(50),
 user_name VARCHAR(20),
-passwords VARCHAR(10),
+password VARCHAR(10),
 gender ENUM('M','F'),
 email VARCHAR(150) UNIQUE,
 mobile VARCHAR(20),
@@ -135,7 +135,9 @@ FOREIGN KEY (year_name) REFERENCES year (year_name)
 CREATE TABLE student_extracurricular (
     stu_id INT,
     activity_id INT,
-    duration varchar(50),
+    duration VARCHAR(50),
+    status VARCHAR(20),
+    value INT,
     PRIMARY KEY (stu_id, activity_id),
     FOREIGN KEY (stu_id) REFERENCES student(stu_id),
     FOREIGN KEY (activity_id) REFERENCES extracurricular(activity_id)
