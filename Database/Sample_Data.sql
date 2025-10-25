@@ -42,7 +42,7 @@ INSERT INTO subject (sub_id, name) VALUES
 -- ========================================
 -- 3. INSERT TEACHERS (30 Teachers)
 -- ========================================
-INSERT INTO teacher (teach_id, full_name, user_name, passwords, gender, email, mobile, qualifications, sub_id, hire_date) VALUES
+INSERT INTO teacher (teach_id, full_name, user_name, password, gender, email, mobile, qualifications, sub_id, hire_date) VALUES
 (1, 'K.G. Perera', 'kgperera', 'Pass@123', 'M', 'kgperera@edulink.lk', '0771234567', 'BSc Mathematics (Hons), PGDE', 1, '2015-01-05'),
 (2, 'S.M. Fernando', 'smfernando', 'Pass@124', 'F', 'smfernando@edulink.lk', '0772234568', 'BSc Mathematics, Dip in Education', 1, '2016-03-10'),
 (3, 'R.P. Silva', 'rpsilva', 'Pass@125', 'M', 'rpsilva@edulink.lk', '0773234569', 'BSc Science (Hons), PGDE', 2, '2014-06-15'),
@@ -814,37 +814,38 @@ INSERT INTO fee_payment (stu_id, fee_id, fee_status, amount, month) VALUES
 -- ========================================
 -- 16. INSERT STUDENT EXTRACURRICULAR ACTIVITIES
 -- ========================================
-INSERT INTO student_extracurricular (stu_id, activity_id, duration) VALUES
-(1,1,'2 years'), (1,12,'1 year'),
-(2,6,'1 year'), (2,19,'2 years'),
-(3,2,'3 years'), (3,13,'2 years'),
-(5,1,'1 year'), (5,29,'1 year'),
-(7,3,'2 years'), (7,30,'1 year'),
-(9,4,'1 year'), (9,28,'2 years'),
-(11,2,'2 years'), (11,25,'3 years'),
-(13,5,'1 year'), (13,26,'1 year'),
-(15,7,'2 years'), (15,12,'1 year'),
-(17,1,'3 years'), (17,29,'2 years'),
-(21,2,'1 year'), (21,25,'2 years'),
-(23,1,'2 years'), (23,30,'1 year'),
-(25,5,'3 years'), (25,28,'2 years'),
-(27,12,'2 years'), (27,14,'1 year'),
-(29,13,'1 year'), (29,31,'2 years'),
-(31,2,'2 years'), (31,25,'1 year'),
-(41,1,'3 years'), (41,20,'2 years'),
-(43,3,'2 years'), (43,29,'1 year'),
-(45,4,'1 year'), (45,30,'2 years'),
-(47,5,'2 years'), (47,12,'1 year'),
-(61,1,'4 years'), (61,13,'3 years'),
-(63,2,'3 years'), (63,29,'2 years'),
-(65,7,'2 years'), (65,30,'1 year'),
-(67,12,'3 years'), (67,31,'2 years'),
-(81,1,'3 years'), (81,20,'2 years'),
-(83,2,'2 years'), (83,29,'3 years'),
-(101,1,'5 years'), (101,13,'4 years'),
-(103,3,'3 years'), (103,30,'2 years'),
-(105,4,'2 years'), (105,29,'3 years'),
-(107,12,'4 years'), (107,31,'3 years');
+INSERT INTO student_extracurricular (stu_id, activity_id, duration, status, value) VALUES
+(1,1,'2 years','Active',8), (1,12,'1 year','Active',7),
+(2,6,'1 year','Inactive',6), (2,19,'2 years','Active',8),
+(3,2,'3 years','Active',9), (3,13,'2 years','Inactive',7),
+(5,1,'1 year','Active',6), (5,29,'1 year','Active',8),
+(7,3,'2 years','Inactive',7), (7,30,'1 year','Active',6),
+(9,4,'1 year','Active',7), (9,28,'2 years','Active',8),
+(11,2,'2 years','Inactive',6), (11,25,'3 years','Active',9),
+(13,5,'1 year','Active',7), (13,26,'1 year','Inactive',6),
+(15,7,'2 years','Active',8), (15,12,'1 year','Active',7),
+(17,1,'3 years','Inactive',7), (17,29,'2 years','Active',9),
+(21,2,'1 year','Active',8), (21,25,'2 years','Active',7),
+(23,1,'2 years','Inactive',6), (23,30,'1 year','Active',8),
+(25,5,'3 years','Active',9), (25,28,'2 years','Active',7),
+(27,12,'2 years','Inactive',6), (27,14,'1 year','Active',8),
+(29,13,'1 year','Active',7), (29,31,'2 years','Active',9),
+(31,2,'2 years','Inactive',6), (31,25,'1 year','Active',7),
+(41,1,'3 years','Active',8), (41,20,'2 years','Active',9),
+(43,3,'2 years','Inactive',6), (43,29,'1 year','Active',7),
+(45,4,'1 year','Active',8), (45,30,'2 years','Active',9),
+(47,5,'2 years','Inactive',7), (47,12,'1 year','Active',8),
+(61,1,'4 years','Active',9), (61,13,'3 years','Active',8),
+(63,2,'3 years','Inactive',7), (63,29,'2 years','Active',9),
+(65,7,'2 years','Active',8), (65,30,'1 year','Active',7),
+(67,12,'3 years','Inactive',6), (67,31,'2 years','Active',8),
+(81,1,'3 years','Active',9), (81,20,'2 years','Active',7),
+(83,2,'2 years','Inactive',6), (83,29,'3 years','Active',8),
+(101,1,'5 years','Active',10), (101,13,'4 years','Active',9),
+(103,3,'3 years','Inactive',7), (103,30,'2 years','Active',8),
+(105,4,'2 years','Active',9), (105,29,'3 years','Active',8),
+(107,12,'4 years','Active',10), (107,31,'3 years','Active',9);
+
 
 -- ========================================
 -- 17. INSERT COMMENTS (Teacher feedback)
