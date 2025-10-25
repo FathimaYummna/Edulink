@@ -421,37 +421,67 @@ INSERT INTO student_class (stu_id, class_name, year_name) VALUES
 -- ========================================
 -- 12. INSERT TEACHER-CLASS ASSIGNMENTS (2024)
 -- ========================================
-INSERT INTO teacher_class (teach_id, class_name, year_name) VALUES
+INSERT INTO subject_class_teacher (teach_id, class_name, year_name, role) VALUES
 -- Grade 6
-(1, '6A', '2024'), (2, '6B', '2024'),
-(3, '6A', '2024'), (4, '6B', '2024'),
-(5, '6A', '2024'), (6, '6B', '2024'),
-(7, '6A', '2024'), (8, '6B', '2024'),
+(1, '6A', '2024', 'Class Teacher'),
+(2, '6B', '2024', 'Class Teacher'),
+(3, '6A', '2024', 'Subject Teacher'),
+(4, '6B', '2024', 'Subject Teacher'),
+(5, '6A', '2024', 'Class and Subject Teacher'),
+(6, '6B', '2024', 'Subject Teacher'),
+(7, '6A', '2024', 'Subject Teacher'),
+(8, '6B', '2024', 'Subject Teacher'),
+
 -- Grade 7
-(1, '7A', '2024'), (2, '7B', '2024'),
-(3, '7A', '2024'), (4, '7B', '2024'),
-(5, '7A', '2024'), (6, '7B', '2024'),
-(10, '7A', '2024'), (11, '7B', '2024'),
+(1, '7A', '2024', 'Class Teacher'),
+(2, '7B', '2024', 'Class Teacher'),
+(3, '7A', '2024', 'Subject Teacher'),
+(4, '7B', '2024', 'Subject Teacher'),
+(5, '7A', '2024', 'Class and Subject Teacher'),
+(6, '7B', '2024', 'Subject Teacher'),
+(10, '7A', '2024', 'Subject Teacher'),
+(11, '7B', '2024', 'Subject Teacher'),
+
 -- Grade 8
-(1, '8A', '2024'), (2, '8B', '2024'),
-(3, '8A', '2024'), (4, '8B', '2024'),
-(5, '8A', '2024'), (6, '8B', '2024'),
-(10, '8A', '2024'), (11, '8B', '2024'),
+(1, '8A', '2024', 'Class Teacher'),
+(2, '8B', '2024', 'Class Teacher'),
+(3, '8A', '2024', 'Class and Subject Teacher'),
+(4, '8B', '2024', 'Subject Teacher'),
+(5, '8A', '2024', 'Subject Teacher'),
+(6, '8B', '2024', 'Class and Subject Teacher'),
+(10, '8A', '2024', 'Subject Teacher'),
+(11, '8B', '2024', 'Subject Teacher'),
+
 -- Grade 9
-(1, '9A', '2024'), (2, '9B', '2024'),
-(3, '9A', '2024'), (4, '9B', '2024'),
-(5, '9A', '2024'), (6, '9B', '2024'),
-(10, '9A', '2024'), (11, '9B', '2024'),
+(1, '9A', '2024', 'Class Teacher'),
+(2, '9B', '2024', 'Class Teacher'),
+(3, '9A', '2024', 'Class and Subject Teacher'),
+(4, '9B', '2024', 'Subject Teacher'),
+(5, '9A', '2024', 'Subject Teacher'),
+(6, '9B', '2024', 'Subject Teacher'),
+(10, '9A', '2024', 'Subject Teacher'),
+(11, '9B', '2024', 'Subject Teacher'),
+
 -- Grade 10
-(1, '10A', '2024'), (2, '10B', '2024'),
-(3, '10A', '2024'), (4, '10B', '2024'),
-(5, '10A', '2024'), (6, '10B', '2024'),
-(20, '10A', '2024'), (21, '10B', '2024'),
+(1, '10A', '2024', 'Class Teacher'),
+(2, '10B', '2024', 'Class Teacher'),
+(3, '10A', '2024', 'Subject Teacher'),
+(4, '10B', '2024', 'Subject Teacher'),
+(5, '10A', '2024', 'Subject Teacher'),
+(6, '10B', '2024', 'Subject Teacher'),
+(20, '10A', '2024', 'Subject Teacher'),
+(21, '10B', '2024', 'Subject Teacher'),
+
 -- Grade 11
-(1, '11A', '2024'), (2, '11B', '2024'),
-(3, '11A', '2024'), (4, '11B', '2024'),
-(5, '11A', '2024'), (6, '11B', '2024'),
-(20, '11A', '2024'), (30, '11B', '2024');
+(1, '11A', '2024', 'Class Teacher'),
+(2, '11B', '2024', 'Class Teacher'),
+(3, '11A', '2024', 'Class and Subject Teacher'),
+(4, '11B', '2024', 'Subject Teacher'),
+(5, '11A', '2024', 'Subject Teacher'),
+(6, '11B', '2024', 'Class and Subject Teacher'),
+(20, '11A', '2024', 'Subject Teacher'),
+(30, '11B', '2024', 'Subject Teacher');
+
 
 -- ========================================
 -- 13. INSERT STUDENT-SUBJECT ASSIGNMENTS (2024)
