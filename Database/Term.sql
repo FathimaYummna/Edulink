@@ -1,5 +1,5 @@
 CREATE TABLE term (
-    term_id CHAR(4) PRIMARY KEY,
+    term_id INT AUTO_INCREMENT  PRIMARY KEY,
     year_name CHAR(4) NOT NULL,
     term_name ENUM('First', 'Second', 'Third'),       
     start_date DATE ,
