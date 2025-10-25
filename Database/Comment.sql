@@ -3,7 +3,7 @@ CREATE TABLE comment (
     stu_id INT NOT NULL,
     teach_id INT NOT NULL,
     comment VARCHAR(400) NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    created_at DATE,
     FOREIGN KEY (stu_id) REFERENCES student(stu_id)
         ON UPDATE CASCADE
         ON DELETE CASCADE,
