@@ -24,7 +24,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
             if ($conn->query($sql) === TRUE) {
                 echo"<script>
                 alert('Update the comment successfully !');
-                window.location.href='../Frontend/update_comments.html';
+                window.location.href='../Frontend/edit_comments.html';
                 </script>";
                 exit();
             }
@@ -35,7 +35,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         else{
             echo"<script>
             alert('You are NOT allowed to delete the comment');
-            window.location.href='../Frontend/update_comments.html';
+            window.location.href='../Frontend/edit_comments.html';
             </script>";
             exit();
         }
@@ -43,7 +43,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     else{
         echo"<script>
         alert('The comment :$commid is Not found');
-        window.location.href='../Frontend/update_comments.html';
+        window.location.href='../Frontend/edit_comments.html';
         </script>";
         exit();
     }

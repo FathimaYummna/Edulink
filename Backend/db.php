@@ -2,7 +2,7 @@
 $servername="localhost";
 $username="root";
 $password="";
-$dbname="edulink";
+$dbname="project";
 
 $conn=new mysqli($servername,$username,$password,$dbname);
 

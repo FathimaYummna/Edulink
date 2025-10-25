@@ -15,7 +15,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
         if($checkpid==$pid){
 
-            $sql="SELECT t.full_name,s.name,c.comment,c.date FROM comment c
+            $sql="SELECT t.full_name,s.name,c.comment,c.created_at FROM comment c
             JOIN teacher t
             ON c.teach_id = t.teach_id
             JOIN subject s
@@ -38,7 +38,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
                 echo"<th class='th'>Teacher's name</th>";
                 echo"<th class='th'>Subject</th>";
                 echo"<th class='th'>Teacher's Comment </th>";
-                echo"<th class='th' >Date</th>";
+                echo"<th class='th' >Created At</th>";
                 echo"</tr>";
         
                 while($values=$result->fetch_assoc()){
@@ -46,7 +46,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
                     echo"<td class='td'>" . htmlspecialchars($values['full_name']) . "</td>";  
                     echo"<td class='td'>" . htmlspecialchars($values['name']) . "</td>";
                     echo"<td class='td'>" . htmlspecialchars($values['comment']) . "</td>";            
-                    echo"<td class='td'>" . htmlspecialchars($values['date']) . "</td>";
+                    echo"<td class='td'>" . htmlspecialchars($values['created_at']) . "</td>";
                     echo"</tr>";
                 }
                 echo"</table>";
