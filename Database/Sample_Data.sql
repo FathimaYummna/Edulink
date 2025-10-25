@@ -427,7 +427,7 @@ INSERT INTO subject_class_teacher (teach_id, class_name, year_name, role) VALUES
 (2, '6B', '2024', 'Class Teacher'),
 (3, '6A', '2024', 'Subject Teacher'),
 (4, '6B', '2024', 'Subject Teacher'),
-(5, '6A', '2024', 'Class and Subject Teacher'),
+(5, '6A', '2024', 'Class Teacher and Subject Teacher'),
 (6, '6B', '2024', 'Subject Teacher'),
 (7, '6A', '2024', 'Subject Teacher'),
 (8, '6B', '2024', 'Subject Teacher'),
@@ -445,17 +445,17 @@ INSERT INTO subject_class_teacher (teach_id, class_name, year_name, role) VALUES
 -- Grade 8
 (1, '8A', '2024', 'Class Teacher'),
 (2, '8B', '2024', 'Class Teacher'),
-(3, '8A', '2024', 'Class and Subject Teacher'),
+(3, '8A', '2024', 'Class Teacher and Subject Teacher'),
 (4, '8B', '2024', 'Subject Teacher'),
 (5, '8A', '2024', 'Subject Teacher'),
-(6, '8B', '2024', 'Class and Subject Teacher'),
+(6, '8B', '2024', 'Class Teacher and Subject Teacher'),
 (10, '8A', '2024', 'Subject Teacher'),
 (11, '8B', '2024', 'Subject Teacher'),
 
 -- Grade 9
 (1, '9A', '2024', 'Class Teacher'),
 (2, '9B', '2024', 'Class Teacher'),
-(3, '9A', '2024', 'Class and Subject Teacher'),
+(3, '9A', '2024', 'Class Teacher and Subject Teacher'),
 (4, '9B', '2024', 'Subject Teacher'),
 (5, '9A', '2024', 'Subject Teacher'),
 (6, '9B', '2024', 'Subject Teacher'),
@@ -475,10 +475,10 @@ INSERT INTO subject_class_teacher (teach_id, class_name, year_name, role) VALUES
 -- Grade 11
 (1, '11A', '2024', 'Class Teacher'),
 (2, '11B', '2024', 'Class Teacher'),
-(3, '11A', '2024', 'Class and Subject Teacher'),
+(3, '11A', '2024', 'Class Teacher and Subject Teacher'),
 (4, '11B', '2024', 'Subject Teacher'),
 (5, '11A', '2024', 'Subject Teacher'),
-(6, '11B', '2024', 'Class and Subject Teacher'),
+(6, '11B', '2024', 'Class Teacher and Subject Teacher'),
 (20, '11A', '2024', 'Subject Teacher'),
 (30, '11B', '2024', 'Subject Teacher');
 
