@@ -2,7 +2,7 @@ CREATE TABLE teacher(
 teach_id INT NOT NULL PRIMARY KEY,
 full_name VARCHAR(50),
 user_name VARCHAR(20),
-passwords VARCHAR(10),
+password VARCHAR(10),
 gender ENUM('M','F'),
 email VARCHAR(150) UNIQUE,
 mobile VARCHAR(20),
