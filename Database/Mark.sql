@@ -1,4 +1,4 @@
-CREATE TABLE marks(
+CREATE TABLE mark(
 stu_id INT NOT NULL,
 sub_id INT NOT NULL,
 term_id INT NOT NULL,
