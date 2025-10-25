@@ -143,7 +143,7 @@ CREATE TABLE student_extracurricular (
     FOREIGN KEY (activity_id) REFERENCES extracurricular(activity_id)
 );
 CREATE TABLE comment (
-    comment_id INT AUTO_INCREMENT PRIMARY KEY,
+    comm_id INT AUTO_INCREMENT PRIMARY KEY,
     stu_id INT NOT NULL,
     teach_id INT NOT NULL,
     comment VARCHAR(400) NOT NULL,
