@@ -1,10 +1,12 @@
 <?php
 
+session_start();
 include 'db.php';
 
-if($_SERVER["REQUEST_METHOD"]=="POST"){
+$tid = $_SESSION['teacher_id'];
 
-    $tid=1;
+
+if($_SERVER["REQUEST_METHOD"]=="POST"){
 
     $commid=$_POST['commid'];
     $new_value=$_POST['newcomm'];

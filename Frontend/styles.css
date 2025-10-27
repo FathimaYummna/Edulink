@@ -1,9 +1,6 @@
     body {
         font-family: Arial;
-        background-color: #e6f0fa;
         display: flex;
-        justify-content: center;
-        color: #1c1c1c;
         background-image: url('../resources/background_image.jpeg');
         background-size: cover;
         background-attachment: fixed;
@@ -12,7 +9,7 @@
     
     div {
         margin-left: 5%;
-        margin-top: 10%;
+        margin-top: 9%;
         border: 2px solid #0b72e9;
         width: 25%;
         height: 60%;
@@ -26,8 +23,8 @@
     }
     
     .divadd {
-        margin-left: 6%;
-        margin-top: 3%;
+        margin-left: 5%;
+        margin-top: 4%;
         border: 2px solid #0b72e9;
         width: 27%;
         height: 85%;
@@ -45,6 +42,16 @@
         border-radius: 10px;
     }
     
+    .divp {
+        margin-left: 38%;
+        margin-top: 7%;
+        border: 2px solid #0b72e9;
+        width: 27%;
+        height: 60%;
+        background-color: #1fe3f1;
+        border-radius: 10px;
+    }
+    
     button {
         width: 70%;
         padding: 10px;
@@ -54,12 +61,12 @@
         border-radius: 10px;
         cursor: pointer;
         display: block;
-        margin: 0 auto;
+        margin-left: 15%;
     }
     
     button:hover {
         background-color: #084aad;
-        font-size: x-large;
+        transform: scale(1.09);
     }
     
     label {
@@ -99,6 +106,7 @@
         width: 50%;
         height: 50%;
         margin-top: 10%;
+        margin-left: 20%;
         text-align: center;
     }
     
@@ -120,4 +128,35 @@
         text-align: center;
         padding: 15px;
         height: 6px;
+    }
+    
+    .back {
+        width: 70%;
+        padding: 10px;
+        background-color: red;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    
+    .back:hover {
+        background-color: black;
+        transform: scale(1.09);
+    }
+    
+    .back-container {
+        position: fixed;
+        bottom: 30px;
+        width: 20%;
+        text-align: center;
+        margin-left: 42%;
+    }
+    
+    .back-container2 {
+        position: fixed;
+        bottom: 30px;
+        width: 20%;
+        text-align: center;
+        margin-left: 38%;
     }

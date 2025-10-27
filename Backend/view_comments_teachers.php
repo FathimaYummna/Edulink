@@ -1,11 +1,14 @@
 <?php
 
+session_start();
 include 'db.php';
+
+$tid = $_SESSION['teacher_id'];
+
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
 
-    $tid=1;
-
+    
     $sdate=$_POST['d1'];
     $edate=$_POST['d2'];
     $class= !empty($_POST['class']) ? $_POST['class'] : '';
@@ -22,7 +25,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
         if($value==$class){
 
-            $where="c.created_at BETWEEN '$sdate' AND '$edate' ";
+            $where="c.created_at BETWEEN '$sdate' AND '$edate' AND c.teach_id='$tid' ";
             if(!empty($class)){
                 $where .=" AND sc.class_name ='$class'";
             }
@@ -69,7 +72,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         else{
             echo"<script>
             alert('Student NO: $stuid NOT a student of class $class');
-            window.location.href='../Frontend/view_comments_teaches.html';
+            window.location.href='../Frontend/view_comments_teachers.html';
             </script>";
             exit();   
         }
@@ -77,7 +80,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     else{
         echo"<script>
         alert('No comments found');
-        window.location.href='../Frontend/view_comments_teaches.html';
+        window.location.href='../Frontend/view_comments_teachers.html';
         </script>";
         exit();
     }

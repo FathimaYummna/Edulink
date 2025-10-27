@@ -1,6 +1,9 @@
 <?php
 
-include "db.php";
+session_start();
+include 'db.php';
+
+$tid = $_SESSION['teacher_id'];
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
          

@@ -1,9 +1,11 @@
-CREATE TABLE Fee_Payment(
-    Stu_ID INT NOT NULL,
-    Fee_ID CHAR(4) NOT NULL,
-    Fee_Status ENUM("Fully Paid", "Part Paid", "Unpaid"),
-    Amount DECIMAL(7,2),
-    FOREIGN KEY (Fee_ID) REFERENCES Fees(Fee_ID),
-    FOREIGN KEY (Stu_ID) REFERENCES Student(Stu_ID)
+CREATE TABLE fee_payment(
+    stu_id INT,
+    fee_id CHAR(4),
+    fee_status ENUM('Fully Paid', 'Part Paid', 'Unpaid'),
+    amount DECIMAL(7,2),
+    month VARCHAR(15),
+    PRIMARY KEY(stu_id,fee_id),
+    FOREIGN KEY (fee_id) REFERENCES fee(fee_id),
+    FOREIGN KEY (stu_id) REFERENCES student(stu_id)
     );
   

@@ -1,10 +1,12 @@
 <?php
 
+session_start();
 include 'db.php';
+
+$tid = $_SESSION['teacher_id'];
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
   
-    $tid=1 ; 
     $commid=$_POST['commid'];
 
     $sql="SELECT teach_id FROM comment WHERE comm_id='$commid'";

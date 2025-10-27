@@ -3,11 +3,11 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-image: url("resources/background1.png");
+    background-image: url("../resources/background1.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    overflow: hidden; /* Prevent scrolling */
+    overflow: hidden; 
 }
 
 .navbar{

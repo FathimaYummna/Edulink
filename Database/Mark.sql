@@ -1,9 +1,10 @@
-CREATE TABLE Mark(
-Mark_ID INT NOT NULL PRIMARY KEY,
-Stu_ID INT,
-Subject_ID INT,
-Term_ID CHAR(4),
-Marks_obtained INT CHECK (Marks_obtained >= 0 AND Marks_obtained <= 100),
-FOREIGN KEY (Stu_ID) REFERENCES Student(Stu_ID),
-FOREIGN KEY (Subject_ID) REFERENCES Subject(Subject_ID),
-FOREIGN KEY (Term_ID) REFERENCES School_Term(Term_ID));
+CREATE TABLE mark(
+stu_id INT NOT NULL,
+sub_id INT NOT NULL,
+term_id INT NOT NULL,
+marks INT CHECK (marks BETWEEN 0 AND 100),
+PRIMARY KEY (stu_id,sub_id,term_id),
+FOREIGN KEY (sub_id) REFERENCES subject (sub_id),
+FOREIGN KEY (stu_id) REFERENCES student (stu_id),
+FOREIGN KEY (term_id) REFERENCES term (term_id)
+);

@@ -1,10 +1,12 @@
 <?php
 
+session_start();
 include 'db.php';
+
+$pid = $_SESSION['parent_id'];
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
 
-    $pid=1;
     $stuid=$_POST['stuid'];
 
     $sql="SELECT parent_id FROM student WHERE stu_id='$stuid'";
@@ -15,11 +17,15 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
         if($checkpid==$pid){
 
-            $sql="SELECT t.full_name,s.name,c.comment,c.created_at FROM comment c
+            $sql="SELECT t.full_name,sct.role, sub.name,c.comment,c.created_at FROM comment c
             JOIN teacher t
             ON c.teach_id = t.teach_id
-            JOIN subject s
-            ON t.sub_id =s.sub_id  
+            JOIN subject sub
+            ON t.sub_id =sub.sub_id
+            JOIN student_class sc 
+            ON c.stu_id = sc.stu_id
+            JOIN subject_class_teacher sct 
+            ON sct.teach_id = c.teach_id AND sct.class_name = sc.class_name
             WHERE c.stu_id='$stuid'";
 
             $result=$conn->query($sql);
@@ -28,7 +34,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
                 echo"<html>";
                 echo"<head> <link rel='stylesheet' href='../Frontend/styles.css'></head>" ;  
-                echo"<body class='tablebody'>";
+                echo"<body>";
 
                 echo"<table class='table'>";
                 echo"<tr>";
@@ -36,15 +42,22 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
                 echo"</tr>";
                 echo"<tr>";
                 echo"<th class='th'>Teacher's name</th>";
+                echo"<th class='th'>Position</th>";
                 echo"<th class='th'>Subject</th>";
                 echo"<th class='th'>Teacher's Comment </th>";
-                echo"<th class='th' >Created At</th>";
+                echo"<th class='th'>Created At</th>";
                 echo"</tr>";
         
                 while($values=$result->fetch_assoc()){
                     echo"<tr>";
-                    echo"<td class='td'>" . htmlspecialchars($values['full_name']) . "</td>";  
-                    echo"<td class='td'>" . htmlspecialchars($values['name']) . "</td>";
+                    echo"<td class='td'>" . htmlspecialchars($values['full_name']) . "</td>"; 
+                    echo"<td class='td'>" . htmlspecialchars($values['role']) . "</td>"; 
+                    if(($values['role'])!='Class Teacher'){
+                        echo"<td class='td'>" . htmlspecialchars($values['name']) . "</td>";
+                    }
+                    else{
+                        echo"<td class='td'>" . htmlspecialchars('-') . "</td>";   
+                    }
                     echo"<td class='td'>" . htmlspecialchars($values['comment']) . "</td>";            
                     echo"<td class='td'>" . htmlspecialchars($values['created_at']) . "</td>";
                     echo"</tr>";
